@@ -1,6 +1,10 @@
 {
   "devDependencies": {
-    "typescript": "^5.3.3"
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.2"
   },
   "dependencies": {
     "sass": "^1.71.0"
@@ -9,7 +13,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc -w"
+    "build": "webpack "
   },
   "author": "",
   "license": "ISC",
