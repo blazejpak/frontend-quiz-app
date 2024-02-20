@@ -59,6 +59,7 @@ module.exports = {
       title: "Frontend Quiz App",
       filename: "index.html",
       template: "./src/template.html",
+      favicon: "./public/assets/images/favicon.png",
     }),
   ],
 };

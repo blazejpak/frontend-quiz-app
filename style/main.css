@@ -1,10 +1,9 @@
-@use "./globals/variables";
+html {
+  font-weight: 600;
+}
 
 body {
   background-image: url("/public/assets/images/pattern-background-desktop-dark.svg");
-  background-size: 100% 100%;
+  background-size: 100%;
   background-repeat: no-repeat;
-  height: 100dvh;
-  width: 100dvh;
-  background-color: #313e51;
-}
+}/*# sourceMappingURL=main.css.map */
