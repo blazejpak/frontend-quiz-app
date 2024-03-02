@@ -22,22 +22,244 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../../public/assets/images/pattern-background-desktop-dark.svg */ "./public/assets/images/pattern-background-desktop-dark.svg"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../../public/assets/images/pattern-background-desktop-light.svg */ "./public/assets/images/pattern-background-desktop-light.svg"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../../public/assets/images/icon-sun-dark.svg */ "./public/assets/images/icon-sun-dark.svg"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ../../public/assets/images/icon-moon-dark.svg */ "./public/assets/images/icon-moon-dark.svg"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ../../../../../public/assets/images/pattern-background-desktop-dark.svg */ "./public/assets/images/pattern-background-desktop-dark.svg"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_4___ = new URL(/* asset import */ __webpack_require__(/*! ../../public/assets/images/icon-sun-light.svg */ "./public/assets/images/icon-sun-light.svg"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_5___ = new URL(/* asset import */ __webpack_require__(/*! ../../public/assets/images/icon-moon-light.svg */ "./public/assets/images/icon-moon-light.svg"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap);"]);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);
+var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_3___);
+var ___CSS_LOADER_URL_REPLACEMENT_4___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_4___);
+var ___CSS_LOADER_URL_REPLACEMENT_5___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_5___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `html {
-  font-weight: 600;
+___CSS_LOADER_EXPORT___.push([module.id, `*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+code,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+canvas,
+embed,
+footer,
+header,
+nav,
+section,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: none;
+}
+
+footer,
+header,
+nav,
+section,
+main {
+  display: block;
 }
 
 body {
-  background-image: url(${___CSS_LOADER_URL_REPLACEMENT_0___});
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+:root {
+  --color-text: #313e51;
+  --color-text--secondary: #626c7f;
+  --color-bg: white;
+  --color-quiz: white;
+  --img-url: url(${___CSS_LOADER_URL_REPLACEMENT_0___});
+  --img-icon--sun: url(${___CSS_LOADER_URL_REPLACEMENT_1___});
+  --img-icon--moon: url(${___CSS_LOADER_URL_REPLACEMENT_2___});
+}
+
+html {
+  font-family: "Rubik", sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  background-image: var(--img-url);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  height: 100dvh;
-  width: 100dvh;
-  background-color: #313e51;
-}`, "",{"version":3,"sources":["webpack://./src/styles/globals/_variables.scss","webpack://./src/styles/main.scss"],"names":[],"mappings":"AAAA;EACE,gBAAA;ACCF;;AAAA;EACE,yDAAA;EACA,0BAAA;EACA,4BAAA;EACA,cAAA;EACA,aAAA;EACA,yBAAA;AAGF","sourcesContent":["html {\n  font-weight: 600;\n}\n","@use \"./globals/variables\";\n\nbody {\n  background-image: url(\"/public/assets/images/pattern-background-desktop-dark.svg\");\n  background-size: 100% 100%;\n  background-repeat: no-repeat;\n  height: 100dvh;\n  width: 100dvh;\n  background-color: #313e51;\n}\n"],"sourceRoot":""}]);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100dvh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding: 0 10%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 25% 1fr 15%;
+}
+body .dark {
+  color-scheme: dark;
+}
+body .light {
+  color-scheme: light;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.theme {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.theme__icon--sun {
+  height: 2.4rem;
+  width: 2.4rem;
+  background-image: var(--img-icon--sun);
+  background-repeat: no-repeat;
+}
+.theme__icon--moon {
+  height: 2.4rem;
+  width: 2.4rem;
+  background-image: var(--img-icon--moon);
+  background-repeat: no-repeat;
+}
+.theme__btn {
+  position: relative;
+  height: 2.8rem;
+  width: 4.8rem;
+  background-color: #a729f5;
+  cursor: pointer;
+}
+.theme__btn::before {
+  position: absolute;
+  content: "";
+  height: 2rem;
+  width: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  border-radius: 100%;
+  transition: left 0.3s ease, right 0.3s ease;
+}
+
+.dark .theme__btn::before {
+  right: 2px;
+}
+
+.light .theme__btn::before {
+  left: 2px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  color: var(--color-text);
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.home h1 {
+  font-size: 6.4rem;
+}
+.home p {
+  font-size: 2rem;
+  color: var(--color-text--secondary);
+}
+
+body.dark {
+  --color-text: white;
+  --color-text--secondary: #abc1e1;
+  --color-bg: #313e51;
+  --color-quiz: #3b4d66;
+  --img-url: url(${___CSS_LOADER_URL_REPLACEMENT_3___});
+  --img-icon--sun: url(${___CSS_LOADER_URL_REPLACEMENT_4___});
+  --img-icon--moon: url(${___CSS_LOADER_URL_REPLACEMENT_5___});
+}`, "",{"version":3,"sources":["webpack://./src/styles/globals/_reset.scss","webpack://./src/styles/main.scss","webpack://./src/styles/globals/_variables.scss"],"names":[],"mappings":"AAAA;;;EAGE,sBAAA;ACEF;;ADCA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAmDE,SAAA;EACA,UAAA;EACA,SAAA;EACA,eAAA;EACA,aAAA;EACA,wBAAA;EACA,kCAAA;EACA,mCAAA;EACA,sBAAA;ACEF;;ADCA;;;;;EAKE,cAAA;ACEF;;ADCA;EACE,cAAA;ACEF;;ADCA;;EAEE,gBAAA;ACEF;;ADCA;;EAEE,YAAA;ACEF;;ADCA;;;;EAIE,WAAA;EACA,aAAA;ACEF;;ADCA;EACE,yBAAA;EACA,iBAAA;ACEF;;ADCA;EACE,wBAAA;EACA,gBAAA;ACEF;;AAtGA;EACE,qBAAA;EACA,gCAAA;EAEA,iBAAA;EACA,mBAAA;EAEA,kDAAA;EACA,wDAAA;EACA,yDAAA;AAuGF;;AApGA;EACE,gCAAA;EACA,gBAAA;AAuGF;;AApGA;EASE,gCAAA;EACA,0BAAA;EACA,4BAAA;EAEA,iCAAA;EACA,wBAAA;EACA,kBAAA;EACA,kBAAA;EACA,kBAAA;EACA,cAAA;EACA,WAAA;EAEA,aAAA;EACA,+BAAA;AA6FF;AAlHE;EACE,kBAAA;AAoHJ;AAjHE;EACE,mBAAA;AAmHJ;;AA9FA;EACE,WAAA;EAEA,aAAA;EACA,8BAAA;AAgGF;;AA7FA;EACE,aAAA;EACA,mBAAA;EACA,WAAA;AAgGF;AA9FE;EACE,cAAA;EACA,aAAA;EACA,sCAAA;EACA,4BAAA;AAgGJ;AA7FE;EACE,cAAA;EACA,aAAA;EACA,uCAAA;EACA,4BAAA;AA+FJ;AA5FE;EACE,kBAAA;EACA,cAAA;EACA,aAAA;EACA,yBCvEW;EDyEX,eAAA;AA6FJ;AA3FE;EACE,kBAAA;EACA,WAAA;EACA,YAAA;EACA,WAAA;EACA,QAAA;EACA,2BAAA;EACA,uBAAA;EACA,mBAAA;EAEA,2CAAA;AA4FJ;;AAxFA;EACE,UAAA;AA2FF;;AAxFA;EACE,SAAA;AA2FF;;AAtFA;EACE,aAAA;EACA,8BAAA;EACA,uBAAA;EACA,wBAAA;AAyFF;;AAvFA;EACE,aAAA;EACA,sBAAA;EACA,SAAA;AA0FF;AAxFE;EACE,iBAAA;AA0FJ;AAvFE;EACE,eAAA;EACA,mCAAA;AAyFJ;;AApFA;EACE,mBAAA;EACA,gCAAA;EAEA,mBAAA;EACA,qBAAA;EAEA,kDAAA;EACA,wDAAA;EACA,yDAAA;AAqFF","sourcesContent":["*,\n*:before,\n*:after {\n  box-sizing: border-box;\n}\n\nhtml,\nbody,\ndiv,\nspan,\nobject,\niframe,\nfigure,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\ncode,\nem,\nimg,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nb,\nu,\ni,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\nmain,\ncanvas,\nembed,\nfooter,\nheader,\nnav,\nsection,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n  text-rendering: optimizeLegibility;\n  -webkit-font-smoothing: antialiased;\n  text-size-adjust: none;\n}\n\nfooter,\nheader,\nnav,\nsection,\nmain {\n  display: block;\n}\n\nbody {\n  line-height: 1;\n}\n\nol,\nul {\n  list-style: none;\n}\n\nblockquote,\nq {\n  quotes: none;\n}\n\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: \"\";\n  content: none;\n}\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n\ninput {\n  -webkit-appearance: none;\n  border-radius: 0;\n}\n","@use \"./globals//reset\";\n@use \"./globals/variables\" as variables;\n\n@import url(\"https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap\");\n\n:root {\n  --color-text: #313e51;\n  --color-text--secondary: #626c7f;\n\n  --color-bg: white;\n  --color-quiz: white;\n\n  --img-url: url(\"/public/assets/images/pattern-background-desktop-light.svg\");\n  --img-icon--sun: url(\"../../public/assets/images/icon-sun-dark.svg\");\n  --img-icon--moon: url(\"../../public/assets/images/icon-moon-dark.svg\");\n}\n\nhtml {\n  font-family: \"Rubik\", sans-serif;\n  font-size: 62.5%;\n}\n\nbody {\n  .dark {\n    color-scheme: dark;\n  }\n\n  .light {\n    color-scheme: light;\n  }\n\n  background-image: var(--img-url);\n  background-size: 100% 100%;\n  background-repeat: no-repeat;\n\n  background-color: var(--color-bg);\n  color: var(--color-text);\n  min-height: 100dvh;\n  overflow-y: hidden;\n  overflow-x: hidden;\n  padding: 0 10%;\n  width: 100%;\n\n  display: grid;\n  grid-template-rows: 25% 1fr 15%;\n}\n// HEADER\n\n// THEME BUTTON\n.header {\n  width: 100%;\n\n  display: flex;\n  justify-content: space-between;\n}\n\n.theme {\n  display: flex;\n  align-items: center;\n  gap: 1.6rem;\n\n  &__icon--sun {\n    height: 2.4rem;\n    width: 2.4rem;\n    background-image: var(--img-icon--sun);\n    background-repeat: no-repeat;\n  }\n\n  &__icon--moon {\n    height: 2.4rem;\n    width: 2.4rem;\n    background-image: var(--img-icon--moon);\n    background-repeat: no-repeat;\n  }\n\n  &__btn {\n    position: relative;\n    height: 2.8rem;\n    width: 4.8rem;\n    background-color: variables.$color-option;\n\n    cursor: pointer;\n  }\n  &__btn::before {\n    position: absolute;\n    content: \"\";\n    height: 2rem;\n    width: 2rem;\n    top: 50%;\n    transform: translateY(-50%);\n    background-color: white;\n    border-radius: 100%;\n\n    transition: left 0.3s ease, right 0.3s ease;\n  }\n}\n\n.dark .theme__btn::before {\n  right: 2px;\n}\n\n.light .theme__btn::before {\n  left: 2px;\n}\n//\n\n// MAIN\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  justify-content: center;\n  color: var(--color-text);\n}\n.home {\n  display: flex;\n  flex-direction: column;\n  gap: 4rem;\n\n  h1 {\n    font-size: 6.4rem;\n  }\n\n  p {\n    font-size: 2rem;\n    color: var(--color-text--secondary);\n  }\n}\n\n// DARK MODE\nbody.dark {\n  --color-text: white;\n  --color-text--secondary: #abc1e1;\n\n  --color-bg: #313e51;\n  --color-quiz: #3b4d66;\n\n  --img-url: url(\"/public/assets/images/pattern-background-desktop-dark.svg\");\n  --img-icon--sun: url(\"../../public/assets/images/icon-sun-light.svg\");\n  --img-icon--moon: url(\"../../public/assets/images/icon-moon-light.svg\");\n}\n","// COLORS\n$color-error: #ee5454;\n$color-correct: #26d782;\n\n$color-text--dark: #313e51;\n$color-text--light: white;\n\n$color-text-secondary--white: #626c7f;\n$color-option: #a729f5;\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -519,6 +741,46 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./public/assets/images/icon-moon-dark.svg":
+/*!*************************************************!*\
+  !*** ./public/assets/images/icon-moon-dark.svg ***!
+  \*************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "icon-moon-dark.svg";
+
+/***/ }),
+
+/***/ "./public/assets/images/icon-moon-light.svg":
+/*!**************************************************!*\
+  !*** ./public/assets/images/icon-moon-light.svg ***!
+  \**************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "icon-moon-light.svg";
+
+/***/ }),
+
+/***/ "./public/assets/images/icon-sun-dark.svg":
+/*!************************************************!*\
+  !*** ./public/assets/images/icon-sun-dark.svg ***!
+  \************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "icon-sun-dark.svg";
+
+/***/ }),
+
+/***/ "./public/assets/images/icon-sun-light.svg":
+/*!*************************************************!*\
+  !*** ./public/assets/images/icon-sun-light.svg ***!
+  \*************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "icon-sun-light.svg";
+
+/***/ }),
+
 /***/ "./public/assets/images/pattern-background-desktop-dark.svg":
 /*!******************************************************************!*\
   !*** ./public/assets/images/pattern-background-desktop-dark.svg ***!
@@ -526,6 +788,26 @@ module.exports = styleTagTransform;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "pattern-background-desktop-dark.svg";
+
+/***/ }),
+
+/***/ "./public/assets/images/pattern-background-desktop-light.svg":
+/*!*******************************************************************!*\
+  !*** ./public/assets/images/pattern-background-desktop-light.svg ***!
+  \*******************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "pattern-background-desktop-light.svg";
+
+/***/ }),
+
+/***/ "./data/data.json":
+/*!************************!*\
+  !*** ./data/data.json ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = /*#__PURE__*/JSON.parse('{"quizzes":[{"title":"HTML","icon":"./assets/images/icon-html.svg","questions":[{"question":"What does HTML stand for?","options":["Hyper Trainer Marking Language","Hyper Text Marketing Language","Hyper Text Markup Language","Hyper Text Markup Leveler"],"answer":"Hyper Text Markup Language"},{"question":"Which of the following is the correct structure for an HTML document?","options":["<html><head></head><body></body></html>","<head><html></html><body></body></head>","<body><head></head><html></html></body>","<html><body></body><head></head></html>"],"answer":"<html><head></head><body></body></html>"},{"question":"Which HTML element is used to define the title of a document?","options":["<head>","<title>","<header>","<top>"],"answer":"<title>"},{"question":"What is the purpose of the <body> tag in HTML?","options":["It defines the document\'s head section.","It contains all the content such as text, images, and links.","It is used to define the main content of an HTML document.","It specifies the body of the email content in HTML."],"answer":"It contains all the content such as text, images, and links."},{"question":"Which HTML tag is used to create a hyperlink?","options":["<hyperlink>","<link>","<a>","<href>"],"answer":"<a>"},{"question":"Which tag is used to display images in HTML?","options":["<img>","<image>","<src>","<pic>"],"answer":"<img>"},{"question":"What attribute is used to provide the path of an image in the <img> tag?","options":["link","src","href","url"],"answer":"src"},{"question":"Which HTML tag is used to create an unordered list?","options":["<ul>","<ol>","<list>","<li>"],"answer":"<ul>"},{"question":"What does the <br> tag do?","options":["It breaks the text into two sections.","It creates a bold text.","It inserts a line break.","It adds a new row in a table."],"answer":"It inserts a line break."},{"question":"In HTML, what does the `fieldset` tag do?","options":["It is used to group related data in a form.","It sets the field to a fixed size.","It automatically validates the fields within a form.","It hides the fields in a form."],"answer":"It is used to group related data in a form."}]},{"title":"CSS","icon":"./assets/images/icon-css.svg","questions":[{"question":"What does CSS stand for?","options":["Colorful Style Sheets","Computer Style Sheets","Cascading Style Sheets","Creative Style Sheets"],"answer":"Cascading Style Sheets"},{"question":"Which HTML attribute is used to define inline styles?","options":["styles","style","class","font-style"],"answer":"style"},{"question":"How do you insert a comment in a CSS file?","options":["// this is a comment //","/* this is a comment */","-- this is a comment --","<!-- this is a comment -->"],"answer":"/* this is a comment */"},{"question":"Which property is used to change the background color of an element?","options":["color","bgcolor","background-color","background"],"answer":"background-color"},{"question":"How do you apply a style to all <p> elements?","options":["p { }",".p { }","#p { }","all.p { }"],"answer":"p { }"},{"question":"Which property is used to change the font of an element?","options":["font-style","text-style","font-family","typeface"],"answer":"font-family"},{"question":"How do you make each word in a text start with a capital letter?","options":["text-transform: capitalize","text-transform: uppercase","text-style: capital","font-transform: capitalize"],"answer":"text-transform: capitalize"},{"question":"How do you select an element with the class name \'header\'?","options":[".header","#header","header","*header"],"answer":".header"},{"question":"What is the default value of the \'position\' property?","options":["relative","fixed","absolute","static"],"answer":"static"},{"question":"What is the purpose of the z-index property in CSS?","options":["To count the number of elements","To set the magnification level of an element","To specify the stack order of an element","To create a zoom effect"],"answer":"To specify the stack order of an element"}]},{"title":"JavaScript","icon":"./assets/images/icon-js.svg","questions":[{"question":"Which syntax is correct to output \'Hello World\' in an alert box?","options":["alertBox(\'Hello World\');","msg(\'Hello World\');","alert(\'Hello World\');","msgBox(\'Hello World\');"],"answer":"alert(\'Hello World\');"},{"question":"How do you call a function named \'myFunction\'?","options":["call function myFunction()","call myFunction()","myFunction()","execute myFunction()"],"answer":"myFunction()"},{"question":"How to write an IF statement in JavaScript?","options":["if i = 5 then","if (i == 5)","if i == 5","if i = 5"],"answer":"if (i == 5)"},{"question":"How to write an IF statement for executing some code if \'i\' is NOT equal to 5?","options":["if (i <> 5)","if i =! 5 then","if (i != 5)","if i not = 5"],"answer":"if (i != 5)"},{"question":"How does a FOR loop start?","options":["for (i = 0; i <= 5)","for i = 1 to 5","for (i <= 5; i++)","for (i = 0; i <= 5; i++)"],"answer":"for (i = 0; i <= 5; i++)"},{"question":"How can you add a single-line comment in JavaScript?","options":["\'This is a single-line comment","//This is a single-line comment","<!--This is a single-line comment-->","/* This is a single-line comment */"],"answer":"//This is a single-line comment"},{"question":"What is the correct way to write a JavaScript array?","options":["var colors = (1:\'red\', 2:\'green\', 3:\'blue\')","var colors = [\'red\', \'green\', \'blue\']","var colors = \'red\', \'green\', \'blue\'","var colors = 1 = (\'red\'), 2 = (\'green\'), 3 = (\'blue\')"],"answer":"var colors = [\'red\', \'green\', \'blue\']"},{"question":"How do you find the number with the highest value of x and y?","options":["Math.ceil(x, y)","top(x, y)","Math.max(x, y)","Math.highest(x, y)"],"answer":"Math.max(x, y)"},{"question":"Which operator is used to assign a value to a variable?","options":["-","*","=","x"],"answer":"="},{"question":"What is the correct way to write a JavaScript object?","options":["var person = {firstName: \'John\', lastName: \'Doe\'};","var person = {firstName = \'John\', lastName = \'Doe\'};","var person = (firstName: \'John\', lastName: \'Doe\');","var person = (firstName = \'John\', lastName = \'Doe\');"],"answer":"var person = {firstName: \'John\', lastName: \'Doe\'};"}]},{"title":"Accessibility","icon":"./assets/images/icon-accessibility.svg","questions":[{"question":"What does \'WCAG\' stand for?","options":["Web Content Accessibility Guidelines","Web Compliance Accessibility Guide","Web Content Accessibility Goals","Website Compliance and Accessibility Guidelines"],"answer":"Web Content Accessibility Guidelines"},{"question":"Which element is used to provide alternative text for images for screen reader users?","options":["<alt>","<figcaption>","<description>","<img alt=\'description\'>"],"answer":"<img alt=\'description\'>"},{"question":"What does ARIA stand for in web development?","options":["Accessible Rich Internet Applications","Advanced Responsive Internet Assistance","Accessible Responsive Internet Applications","Automated Responsive Internet Actions"],"answer":"Accessible Rich Internet Applications"},{"question":"Which of the following is not a principle of the WCAG?","options":["Perceivable","Dependable","Operable","Understandable"],"answer":"Dependable"},{"question":"Which of these color contrast ratios defines the minimum WCAG 2.1 Level AA requirement for normal text?","options":["3:1","4.5:1","7:1","2:1"],"answer":"4.5:1"},{"question":"Which of the following elements is inherently focusable, meaning it can receive focus without a \'tabindex\' attribute?","options":["<div>","<span>","<a href=\'...\'>","<p>"],"answer":"<a href=\'...\'>"},{"question":"What is the purpose of the \'lang\' attribute in an HTML page?","options":["To specify the scripting language","To define the character set","To indicate the language of the page content","To declare a language pack"],"answer":"To indicate the language of the page content"},{"question":"Which guideline ensures that content is accessible by keyboard as well as by mouse?","options":["Keyboard Accessible","Mouse Independence","Device Independence","Operable Controls"],"answer":"Keyboard Accessible"},{"question":"What is the role of \'skip navigation\' links in web accessibility?","options":["To skip over primary navigation to the main content","To provide shortcuts to different sections of the website","To help users skip unwanted sections like advertisements","To bypass broken links in the navigation"],"answer":"To skip over primary navigation to the main content"},{"question":"Which of these tools can help in checking the accessibility of a website?","options":["W3C Validator","Google Lighthouse","CSS Validator","JavaScript Console"],"answer":"Google Lighthouse"}]}]}');
 
 /***/ })
 
@@ -676,9 +958,63 @@ var exports = __webpack_exports__;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
+const data = __webpack_require__(/*! ../data/data.json */ "./data/data.json");
+const quizzes = data.quizzes;
+console.log(data);
+// COLOR SCHEME
+function changeColorScheme() {
+    const themeBTN = document.querySelector(".theme__btn");
+    const bodyHTML = document.querySelector("body");
+    try {
+        if (window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme:dark)").matches) {
+            bodyHTML.className = "dark";
+            bodyHTML.classList.remove("light");
+        }
+        else {
+            bodyHTML.className = "light";
+            bodyHTML.classList.remove("dark");
+        }
+        const changeTheme = () => {
+            bodyHTML.classList.toggle("light");
+            bodyHTML.classList.toggle("dark");
+        };
+        themeBTN === null || themeBTN === void 0 ? void 0 : themeBTN.addEventListener("click", changeTheme);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+changeColorScheme();
+// show subjects
+function showSubects() {
+    const subjects = document.querySelector(".subjects");
+    try {
+        if (subjects) {
+            subjects.innerHTML = quizzes
+                .map((subject, index) => {
+                const icon = subject.icon.slice(1);
+                console.log(icon);
+                // const imagePath = require(`../public${icon}`);
+                // console.log(imagePath);
+                return `
+        <li data-index="${index}" class="subjects__subject">
+        <img src="../public${icon}" alt="${subject.title}" />
+        <p>${subject.title}</p>
+        </li>
+        `;
+            })
+                .join("");
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+showSubects();
 
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle.9c663c7550083ba572cc.js.map
+//# sourceMappingURL=bundle.6b912d0b03d512a39bd6.js.map

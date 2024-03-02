@@ -6,15 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-  <body id="background">
-    <footer></footer>
+  <body>
+    <header class="header">
+      <div></div>
+      <div class="theme">
+        <div class="theme__icon--sun" role="img" aria-label="sun icon"></div>
+        <div class="theme__btn"></div>
+        <div aria-label="moon icon" class="theme__icon--moon" role="img"></div>
+      </div>
+    </header>
+
     <main>
-      <section>
-        <div>
+      <section class="container">
+        <div class="home">
           <h1>Welcome to the <span>Frontend Quiz!</span></h1>
-          <p></p>
+          <p>Pick a subject to get started</p>
         </div>
+
+        <ul class="subjects"></ul>
       </section>
     </main>
+
+    <footer>
+      <div></div>
+    </footer>
   </body>
 </html>

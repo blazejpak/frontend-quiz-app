@@ -1,10 +1,140 @@
-@use "./globals/variables";
+@use "./globals//reset";
+@use "./globals/variables" as variables;
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+:root {
+  --color-text: #313e51;
+  --color-text--secondary: #626c7f;
+
+  --color-bg: white;
+  --color-quiz: white;
+
+  --img-url: url("/public/assets/images/pattern-background-desktop-light.svg");
+  --img-icon--sun: url("../../public/assets/images/icon-sun-dark.svg");
+  --img-icon--moon: url("../../public/assets/images/icon-moon-dark.svg");
+}
+
+html {
+  font-family: "Rubik", sans-serif;
+  font-size: 62.5%;
+}
 
 body {
-  background-image: url("/public/assets/images/pattern-background-desktop-dark.svg");
+  .dark {
+    color-scheme: dark;
+  }
+
+  .light {
+    color-scheme: light;
+  }
+
+  background-image: var(--img-url);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  height: 100dvh;
-  width: 100dvh;
-  background-color: #313e51;
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100dvh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding: 0 10%;
+  width: 100%;
+
+  display: grid;
+  grid-template-rows: 25% 1fr 15%;
+}
+// HEADER
+
+// THEME BUTTON
+.header {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.theme {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  &__icon--sun {
+    height: 2.4rem;
+    width: 2.4rem;
+    background-image: var(--img-icon--sun);
+    background-repeat: no-repeat;
+  }
+
+  &__icon--moon {
+    height: 2.4rem;
+    width: 2.4rem;
+    background-image: var(--img-icon--moon);
+    background-repeat: no-repeat;
+  }
+
+  &__btn {
+    position: relative;
+    height: 2.8rem;
+    width: 4.8rem;
+    background-color: variables.$color-option;
+
+    cursor: pointer;
+  }
+  &__btn::before {
+    position: absolute;
+    content: "";
+    height: 2rem;
+    width: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 100%;
+
+    transition: left 0.3s ease, right 0.3s ease;
+  }
+}
+
+.dark .theme__btn::before {
+  right: 2px;
+}
+
+.light .theme__btn::before {
+  left: 2px;
+}
+//
+
+// MAIN
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  color: var(--color-text);
+}
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  h1 {
+    font-size: 6.4rem;
+  }
+
+  p {
+    font-size: 2rem;
+    color: var(--color-text--secondary);
+  }
+}
+
+// DARK MODE
+body.dark {
+  --color-text: white;
+  --color-text--secondary: #abc1e1;
+
+  --color-bg: #313e51;
+  --color-quiz: #3b4d66;
+
+  --img-url: url("/public/assets/images/pattern-background-desktop-dark.svg");
+  --img-icon--sun: url("../../public/assets/images/icon-sun-light.svg");
+  --img-icon--moon: url("../../public/assets/images/icon-moon-light.svg");
 }

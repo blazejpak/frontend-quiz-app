@@ -1,9 +1,226 @@
-html {
-  font-weight: 600;
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+code,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+canvas,
+embed,
+footer,
+header,
+nav,
+section,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer,
+header,
+nav,
+section,
+main {
+  display: block;
 }
 
 body {
-  background-image: url("/public/assets/images/pattern-background-desktop-dark.svg");
-  background-size: 100%;
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+:root {
+  --color-text: #313e51;
+  --color-text--secondary: #626c7f;
+  --color-bg: white;
+  --color-quiz: white;
+  --img-url: url("/public/assets/images/pattern-background-desktop-light.svg");
+  --img-icon--sun: url("../../public/assets/images/icon-sun-dark.svg");
+  --img-icon--moon: url("../../public/assets/images/icon-moon-dark.svg");
+}
+
+html {
+  font-family: "Rubik", sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  background-image: var(--img-url);
+  background-size: 100% 100%;
   background-repeat: no-repeat;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100dvh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding: 0 10%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 25% 1fr 15%;
+}
+body .dark {
+  color-scheme: dark;
+}
+body .light {
+  color-scheme: light;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.theme {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.theme__icon--sun {
+  height: 2.4rem;
+  width: 2.4rem;
+  background-image: var(--img-icon--sun);
+  background-repeat: no-repeat;
+}
+.theme__icon--moon {
+  height: 2.4rem;
+  width: 2.4rem;
+  background-image: var(--img-icon--moon);
+  background-repeat: no-repeat;
+}
+.theme__btn {
+  position: relative;
+  height: 2.8rem;
+  width: 4.8rem;
+  background-color: #a729f5;
+  cursor: pointer;
+}
+.theme__btn::before {
+  position: absolute;
+  content: "";
+  height: 2rem;
+  width: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  border-radius: 100%;
+  transition: left 0.3s ease, right 0.3s ease;
+}
+
+.dark .theme__btn::before {
+  right: 2px;
+}
+
+.light .theme__btn::before {
+  left: 2px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  color: var(--color-text);
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.home h1 {
+  font-size: 6.4rem;
+}
+.home p {
+  font-size: 2rem;
+  color: var(--color-text--secondary);
+}
+
+body.dark {
+  --color-text: white;
+  --color-text--secondary: #abc1e1;
+  --color-bg: #313e51;
+  --color-quiz: #3b4d66;
+  --img-url: url("/public/assets/images/pattern-background-desktop-dark.svg");
+  --img-icon--sun: url("../../public/assets/images/icon-sun-light.svg");
+  --img-icon--moon: url("../../public/assets/images/icon-moon-light.svg");
 }/*# sourceMappingURL=main.css.map */
