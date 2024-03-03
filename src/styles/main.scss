@@ -9,6 +9,12 @@
 
   --color-bg: white;
   --color-quiz: white;
+  --color-quiz--icon: 0, 0, 0;
+
+  --color-option: 167, 41, 245;
+
+  --color-error: rgb(238, 84, 84);
+  --color-correct: rgb(38, 215, 130);
 
   --img-url: url("/public/assets/images/pattern-background-desktop-light.svg");
   --img-icon--sun: url("../../public/assets/images/icon-sun-dark.svg");
@@ -36,7 +42,6 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   min-height: 100dvh;
-  overflow-y: hidden;
   overflow-x: hidden;
   padding: 0 10%;
   width: 100%;
@@ -52,6 +57,23 @@ body {
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  &__subject {
+    display: flex;
+    gap: 3.2rem;
+    align-items: center;
+
+    img {
+      background-color: rgba(var(--color-quiz--icon), 0.05);
+      border-radius: 8px;
+      padding: 0.8rem;
+    }
+
+    p {
+      font-size: 2.8rem;
+    }
+  }
 }
 
 .theme {
@@ -104,12 +126,17 @@ body {
 }
 //
 
-// MAIN
+// MAIN SUBJECTS
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  color: var(--color-text);
+  display: none;
+  &.show {
+    display: grid;
+
+    gap: 3.2rem;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    color: var(--color-text);
+  }
 }
 .home {
   display: flex;
@@ -126,6 +153,167 @@ body {
   }
 }
 
+.subjects {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+
+  &__subject {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+
+    background-color: var(--color-quiz);
+    padding: 1.2rem;
+    border-radius: 8px;
+
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border: 3px solid transparent;
+
+    &:hover {
+      border: 3px solid rgba(var(--color-option), 0.5);
+      color: rgba(var(--color-option), 0.5);
+      transition: all 0.3s ease;
+    }
+
+    &:focus,
+    &:active {
+      border: 3px solid rgba(var(--color-option), 1);
+      color: rgba(var(--color-option), 1);
+    }
+
+    img {
+      background-color: rgba(var(--color-quiz--icon), 0.05);
+      border-radius: 8px;
+      padding: 0.8rem;
+    }
+
+    p {
+      font-size: 2.8rem;
+    }
+  }
+}
+
+// MAIN QUIZ
+.quiz {
+  display: none;
+  &.show {
+    display: grid;
+
+    gap: 3.2rem;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    color: var(--color-text);
+  }
+
+  &__home {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    h2 {
+      font-size: 6.4rem;
+    }
+
+    p {
+      font-size: 2rem;
+      color: var(--color-text--secondary);
+    }
+  }
+
+  &__answers {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+
+  &__option {
+    background-color: rgba(var(--color-quiz--icon), 0.05);
+    border-radius: 8px;
+    padding: 1.6rem;
+    font-weight: bold;
+  }
+
+  &__answer {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+
+    background-color: var(--color-quiz);
+    padding: 1.2rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+    &.active {
+      border: solid 1px rgb(var(--color-option));
+    }
+
+    &.error {
+      border: solid 1px var(--color-error);
+    }
+
+    &.correct {
+      border: solid 1px var(--color-correct);
+    }
+
+    &:not(.active):hover .quiz__option {
+      background-color: rgba(var(--color-option), 0.1);
+      color: rgb(var(--color-option));
+      transition: all 0.3s ease;
+    }
+
+    &.active .quiz__option {
+      background-color: rgba(var(--color-option), 1);
+      color: white;
+      transition: all 0.3s ease;
+    }
+    &.error .quiz__option {
+      background-color: var(--color-error);
+    }
+    &.correct .quiz__option {
+      background-color: var(--color-correct);
+    }
+
+    &.disabled {
+      pointer-events: none;
+    }
+
+    p {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+// BUTTON
+
+.btn {
+  height: 9.2rem;
+  width: 100%;
+  outline: none;
+  border-style: none;
+
+  color: white;
+  background-color: rgb(var(--color-option));
+  font-size: 2.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(1.2);
+    transition: all 0.3s;
+  }
+
+  &:active {
+    border-style: none;
+    filter: brightness(1.3);
+    transition: all 0.3s;
+  }
+}
+
 // DARK MODE
 body.dark {
   --color-text: white;
@@ -133,6 +321,7 @@ body.dark {
 
   --color-bg: #313e51;
   --color-quiz: #3b4d66;
+  --color-quiz--icon: 255, 255, 255;
 
   --img-url: url("/public/assets/images/pattern-background-desktop-dark.svg");
   --img-icon--sun: url("../../public/assets/images/icon-sun-light.svg");

@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/main.scss":
@@ -8,6 +7,7 @@
   \***********************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -150,6 +150,8 @@ input {
   --color-text--secondary: #626c7f;
   --color-bg: white;
   --color-quiz: white;
+  --color-quiz--icon: 0, 0, 0;
+  --color-option: 167, 41, 245;
   --img-url: url(${___CSS_LOADER_URL_REPLACEMENT_0___});
   --img-icon--sun: url(${___CSS_LOADER_URL_REPLACEMENT_1___});
   --img-icon--moon: url(${___CSS_LOADER_URL_REPLACEMENT_2___});
@@ -167,7 +169,6 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   min-height: 100dvh;
-  overflow-y: hidden;
   overflow-x: hidden;
   padding: 0 10%;
   width: 100%;
@@ -185,6 +186,20 @@ body .light {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.header__subject {
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+}
+.header__subject img {
+  background-color: rgba(var(--color-quiz--icon), 0.05);
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+.header__subject p {
+  font-size: 2.8rem;
 }
 
 .theme {
@@ -232,7 +247,11 @@ body .light {
 }
 
 .container {
+  display: none;
+}
+.container.show {
   display: grid;
+  gap: 3.2rem;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   color: var(--color-text);
@@ -251,15 +270,124 @@ body .light {
   color: var(--color-text--secondary);
 }
 
+.subjects {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+.subjects__subject {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+  background-color: var(--color-quiz);
+  padding: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+.subjects__subject:hover {
+  border: 3px solid rgba(var(--color-option), 0.5);
+  color: rgba(var(--color-option), 0.5);
+  transition: all 0.3s ease;
+}
+.subjects__subject:focus, .subjects__subject:active {
+  border: 3px solid rgba(var(--color-option), 1);
+  color: rgba(var(--color-option), 1);
+}
+.subjects__subject img {
+  background-color: rgba(var(--color-quiz--icon), 0.05);
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+.subjects__subject p {
+  font-size: 2.8rem;
+}
+
+.quiz {
+  display: none;
+}
+.quiz.show {
+  display: grid;
+  gap: 3.2rem;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  color: var(--color-text);
+}
+.quiz__home {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.quiz__home h2 {
+  font-size: 6.4rem;
+}
+.quiz__home p {
+  font-size: 2rem;
+  color: var(--color-text--secondary);
+}
+.quiz__answers {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+.quiz__option {
+  background-color: rgba(var(--color-quiz--icon), 0.05);
+  border-radius: 8px;
+  padding: 1.6rem;
+  font-weight: bold;
+}
+.quiz__answer {
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+  background-color: var(--color-quiz);
+  padding: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border: 3px solid transparent;
+}
+.quiz__answer:hover .quiz__option {
+  background-color: rgba(var(--color-option), 0.1);
+  color: rgb(var(--color-option));
+  transition: all 0.3s ease;
+}
+.quiz__answer p {
+  font-size: 1.6rem;
+}
+
+.btn {
+  height: 9.2rem;
+  width: 100%;
+  outline: none;
+  border-style: none;
+  color: white;
+  background-color: rgb(var(--color-option));
+  font-size: 2.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn:hover {
+  filter: brightness(1.2);
+  transition: all 0.3s;
+}
+.btn:active {
+  border-style: none;
+  filter: brightness(1.3);
+  transition: all 0.3s;
+}
+
 body.dark {
   --color-text: white;
   --color-text--secondary: #abc1e1;
   --color-bg: #313e51;
   --color-quiz: #3b4d66;
+  --color-quiz--icon: 255, 255, 255;
   --img-url: url(${___CSS_LOADER_URL_REPLACEMENT_3___});
   --img-icon--sun: url(${___CSS_LOADER_URL_REPLACEMENT_4___});
   --img-icon--moon: url(${___CSS_LOADER_URL_REPLACEMENT_5___});
-}`, "",{"version":3,"sources":["webpack://./src/styles/globals/_reset.scss","webpack://./src/styles/main.scss","webpack://./src/styles/globals/_variables.scss"],"names":[],"mappings":"AAAA;;;EAGE,sBAAA;ACEF;;ADCA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAmDE,SAAA;EACA,UAAA;EACA,SAAA;EACA,eAAA;EACA,aAAA;EACA,wBAAA;EACA,kCAAA;EACA,mCAAA;EACA,sBAAA;ACEF;;ADCA;;;;;EAKE,cAAA;ACEF;;ADCA;EACE,cAAA;ACEF;;ADCA;;EAEE,gBAAA;ACEF;;ADCA;;EAEE,YAAA;ACEF;;ADCA;;;;EAIE,WAAA;EACA,aAAA;ACEF;;ADCA;EACE,yBAAA;EACA,iBAAA;ACEF;;ADCA;EACE,wBAAA;EACA,gBAAA;ACEF;;AAtGA;EACE,qBAAA;EACA,gCAAA;EAEA,iBAAA;EACA,mBAAA;EAEA,kDAAA;EACA,wDAAA;EACA,yDAAA;AAuGF;;AApGA;EACE,gCAAA;EACA,gBAAA;AAuGF;;AApGA;EASE,gCAAA;EACA,0BAAA;EACA,4BAAA;EAEA,iCAAA;EACA,wBAAA;EACA,kBAAA;EACA,kBAAA;EACA,kBAAA;EACA,cAAA;EACA,WAAA;EAEA,aAAA;EACA,+BAAA;AA6FF;AAlHE;EACE,kBAAA;AAoHJ;AAjHE;EACE,mBAAA;AAmHJ;;AA9FA;EACE,WAAA;EAEA,aAAA;EACA,8BAAA;AAgGF;;AA7FA;EACE,aAAA;EACA,mBAAA;EACA,WAAA;AAgGF;AA9FE;EACE,cAAA;EACA,aAAA;EACA,sCAAA;EACA,4BAAA;AAgGJ;AA7FE;EACE,cAAA;EACA,aAAA;EACA,uCAAA;EACA,4BAAA;AA+FJ;AA5FE;EACE,kBAAA;EACA,cAAA;EACA,aAAA;EACA,yBCvEW;EDyEX,eAAA;AA6FJ;AA3FE;EACE,kBAAA;EACA,WAAA;EACA,YAAA;EACA,WAAA;EACA,QAAA;EACA,2BAAA;EACA,uBAAA;EACA,mBAAA;EAEA,2CAAA;AA4FJ;;AAxFA;EACE,UAAA;AA2FF;;AAxFA;EACE,SAAA;AA2FF;;AAtFA;EACE,aAAA;EACA,8BAAA;EACA,uBAAA;EACA,wBAAA;AAyFF;;AAvFA;EACE,aAAA;EACA,sBAAA;EACA,SAAA;AA0FF;AAxFE;EACE,iBAAA;AA0FJ;AAvFE;EACE,eAAA;EACA,mCAAA;AAyFJ;;AApFA;EACE,mBAAA;EACA,gCAAA;EAEA,mBAAA;EACA,qBAAA;EAEA,kDAAA;EACA,wDAAA;EACA,yDAAA;AAqFF","sourcesContent":["*,\n*:before,\n*:after {\n  box-sizing: border-box;\n}\n\nhtml,\nbody,\ndiv,\nspan,\nobject,\niframe,\nfigure,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\ncode,\nem,\nimg,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nb,\nu,\ni,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\nmain,\ncanvas,\nembed,\nfooter,\nheader,\nnav,\nsection,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n  text-rendering: optimizeLegibility;\n  -webkit-font-smoothing: antialiased;\n  text-size-adjust: none;\n}\n\nfooter,\nheader,\nnav,\nsection,\nmain {\n  display: block;\n}\n\nbody {\n  line-height: 1;\n}\n\nol,\nul {\n  list-style: none;\n}\n\nblockquote,\nq {\n  quotes: none;\n}\n\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: \"\";\n  content: none;\n}\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n\ninput {\n  -webkit-appearance: none;\n  border-radius: 0;\n}\n","@use \"./globals//reset\";\n@use \"./globals/variables\" as variables;\n\n@import url(\"https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap\");\n\n:root {\n  --color-text: #313e51;\n  --color-text--secondary: #626c7f;\n\n  --color-bg: white;\n  --color-quiz: white;\n\n  --img-url: url(\"/public/assets/images/pattern-background-desktop-light.svg\");\n  --img-icon--sun: url(\"../../public/assets/images/icon-sun-dark.svg\");\n  --img-icon--moon: url(\"../../public/assets/images/icon-moon-dark.svg\");\n}\n\nhtml {\n  font-family: \"Rubik\", sans-serif;\n  font-size: 62.5%;\n}\n\nbody {\n  .dark {\n    color-scheme: dark;\n  }\n\n  .light {\n    color-scheme: light;\n  }\n\n  background-image: var(--img-url);\n  background-size: 100% 100%;\n  background-repeat: no-repeat;\n\n  background-color: var(--color-bg);\n  color: var(--color-text);\n  min-height: 100dvh;\n  overflow-y: hidden;\n  overflow-x: hidden;\n  padding: 0 10%;\n  width: 100%;\n\n  display: grid;\n  grid-template-rows: 25% 1fr 15%;\n}\n// HEADER\n\n// THEME BUTTON\n.header {\n  width: 100%;\n\n  display: flex;\n  justify-content: space-between;\n}\n\n.theme {\n  display: flex;\n  align-items: center;\n  gap: 1.6rem;\n\n  &__icon--sun {\n    height: 2.4rem;\n    width: 2.4rem;\n    background-image: var(--img-icon--sun);\n    background-repeat: no-repeat;\n  }\n\n  &__icon--moon {\n    height: 2.4rem;\n    width: 2.4rem;\n    background-image: var(--img-icon--moon);\n    background-repeat: no-repeat;\n  }\n\n  &__btn {\n    position: relative;\n    height: 2.8rem;\n    width: 4.8rem;\n    background-color: variables.$color-option;\n\n    cursor: pointer;\n  }\n  &__btn::before {\n    position: absolute;\n    content: \"\";\n    height: 2rem;\n    width: 2rem;\n    top: 50%;\n    transform: translateY(-50%);\n    background-color: white;\n    border-radius: 100%;\n\n    transition: left 0.3s ease, right 0.3s ease;\n  }\n}\n\n.dark .theme__btn::before {\n  right: 2px;\n}\n\n.light .theme__btn::before {\n  left: 2px;\n}\n//\n\n// MAIN\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  justify-content: center;\n  color: var(--color-text);\n}\n.home {\n  display: flex;\n  flex-direction: column;\n  gap: 4rem;\n\n  h1 {\n    font-size: 6.4rem;\n  }\n\n  p {\n    font-size: 2rem;\n    color: var(--color-text--secondary);\n  }\n}\n\n// DARK MODE\nbody.dark {\n  --color-text: white;\n  --color-text--secondary: #abc1e1;\n\n  --color-bg: #313e51;\n  --color-quiz: #3b4d66;\n\n  --img-url: url(\"/public/assets/images/pattern-background-desktop-dark.svg\");\n  --img-icon--sun: url(\"../../public/assets/images/icon-sun-light.svg\");\n  --img-icon--moon: url(\"../../public/assets/images/icon-moon-light.svg\");\n}\n","// COLORS\n$color-error: #ee5454;\n$color-correct: #26d782;\n\n$color-text--dark: #313e51;\n$color-text--light: white;\n\n$color-text-secondary--white: #626c7f;\n$color-option: #a729f5;\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/styles/globals/_reset.scss","webpack://./src/styles/main.scss","webpack://./src/styles/globals/_variables.scss"],"names":[],"mappings":"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","sourcesContent":["*,\n*:before,\n*:after {\n  box-sizing: border-box;\n}\n\nhtml,\nbody,\ndiv,\nspan,\nobject,\niframe,\nfigure,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\ncode,\nem,\nimg,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nb,\nu,\ni,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\nmain,\ncanvas,\nembed,\nfooter,\nheader,\nnav,\nsection,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n  text-rendering: optimizeLegibility;\n  -webkit-font-smoothing: antialiased;\n  text-size-adjust: none;\n}\n\nfooter,\nheader,\nnav,\nsection,\nmain {\n  display: block;\n}\n\nbody {\n  line-height: 1;\n}\n\nol,\nul {\n  list-style: none;\n}\n\nblockquote,\nq {\n  quotes: none;\n}\n\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: \"\";\n  content: none;\n}\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n\ninput {\n  -webkit-appearance: none;\n  border-radius: 0;\n}\n","@use \"./globals//reset\";\n@use \"./globals/variables\" as variables;\n\n@import url(\"https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap\");\n\n:root {\n  --color-text: #313e51;\n  --color-text--secondary: #626c7f;\n\n  --color-bg: white;\n  --color-quiz: white;\n  --color-quiz--icon: 0, 0, 0;\n\n  --color-option: 167, 41, 245;\n\n  --img-url: url(\"/public/assets/images/pattern-background-desktop-light.svg\");\n  --img-icon--sun: url(\"../../public/assets/images/icon-sun-dark.svg\");\n  --img-icon--moon: url(\"../../public/assets/images/icon-moon-dark.svg\");\n}\n\nhtml {\n  font-family: \"Rubik\", sans-serif;\n  font-size: 62.5%;\n}\n\nbody {\n  .dark {\n    color-scheme: dark;\n  }\n\n  .light {\n    color-scheme: light;\n  }\n\n  background-image: var(--img-url);\n  background-size: 100% 100%;\n  background-repeat: no-repeat;\n\n  background-color: var(--color-bg);\n  color: var(--color-text);\n  min-height: 100dvh;\n  overflow-x: hidden;\n  padding: 0 10%;\n  width: 100%;\n\n  display: grid;\n  grid-template-rows: 25% 1fr 15%;\n}\n// HEADER\n\n// THEME BUTTON\n.header {\n  width: 100%;\n\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n\n  &__subject {\n    display: flex;\n    gap: 3.2rem;\n    align-items: center;\n\n    img {\n      background-color: rgba(var(--color-quiz--icon), 0.05);\n      border-radius: 8px;\n      padding: 0.8rem;\n    }\n\n    p {\n      font-size: 2.8rem;\n    }\n  }\n}\n\n.theme {\n  display: flex;\n  align-items: center;\n  gap: 1.6rem;\n\n  &__icon--sun {\n    height: 2.4rem;\n    width: 2.4rem;\n    background-image: var(--img-icon--sun);\n    background-repeat: no-repeat;\n  }\n\n  &__icon--moon {\n    height: 2.4rem;\n    width: 2.4rem;\n    background-image: var(--img-icon--moon);\n    background-repeat: no-repeat;\n  }\n\n  &__btn {\n    position: relative;\n    height: 2.8rem;\n    width: 4.8rem;\n    background-color: variables.$color-option;\n\n    cursor: pointer;\n  }\n  &__btn::before {\n    position: absolute;\n    content: \"\";\n    height: 2rem;\n    width: 2rem;\n    top: 50%;\n    transform: translateY(-50%);\n    background-color: white;\n    border-radius: 100%;\n\n    transition: left 0.3s ease, right 0.3s ease;\n  }\n}\n\n.dark .theme__btn::before {\n  right: 2px;\n}\n\n.light .theme__btn::before {\n  left: 2px;\n}\n//\n\n// MAIN SUBJECTS\n.container {\n  display: none;\n  &.show {\n    display: grid;\n\n    gap: 3.2rem;\n    grid-template-columns: 1fr 1fr;\n    justify-content: center;\n    color: var(--color-text);\n  }\n}\n.home {\n  display: flex;\n  flex-direction: column;\n  gap: 4rem;\n\n  h1 {\n    font-size: 6.4rem;\n  }\n\n  p {\n    font-size: 2rem;\n    color: var(--color-text--secondary);\n  }\n}\n\n.subjects {\n  display: flex;\n  flex-direction: column;\n  gap: 3.2rem;\n\n  &__subject {\n    display: flex;\n    align-items: center;\n    gap: 3.2rem;\n\n    background-color: var(--color-quiz);\n    padding: 1.2rem;\n    border-radius: 8px;\n\n    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);\n    cursor: pointer;\n    border: 3px solid transparent;\n\n    &:hover {\n      border: 3px solid rgba(var(--color-option), 0.5);\n      color: rgba(var(--color-option), 0.5);\n      transition: all 0.3s ease;\n    }\n\n    &:focus,\n    &:active {\n      border: 3px solid rgba(var(--color-option), 1);\n      color: rgba(var(--color-option), 1);\n    }\n\n    img {\n      background-color: rgba(var(--color-quiz--icon), 0.05);\n      border-radius: 8px;\n      padding: 0.8rem;\n    }\n\n    p {\n      font-size: 2.8rem;\n    }\n  }\n}\n\n// MAIN QUIZ\n.quiz {\n  display: none;\n  &.show {\n    display: grid;\n\n    gap: 3.2rem;\n    grid-template-columns: 1fr 1fr;\n    justify-content: center;\n    color: var(--color-text);\n  }\n\n  &__home {\n    display: flex;\n    flex-direction: column;\n    gap: 4rem;\n\n    h2 {\n      font-size: 6.4rem;\n    }\n\n    p {\n      font-size: 2rem;\n      color: var(--color-text--secondary);\n    }\n  }\n\n  &__answers {\n    display: flex;\n    flex-direction: column;\n    gap: 3.2rem;\n  }\n\n  &__option {\n    background-color: rgba(var(--color-quiz--icon), 0.05);\n    border-radius: 8px;\n    padding: 1.6rem;\n    font-weight: bold;\n  }\n\n  &__answer {\n    display: flex;\n    align-items: center;\n    gap: 3.2rem;\n\n    background-color: var(--color-quiz);\n    padding: 1.2rem;\n    border-radius: 8px;\n\n    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);\n    cursor: pointer;\n    border: 3px solid transparent;\n\n    &:hover .quiz__option {\n      background-color: rgba(var(--color-option), 0.1);\n      color: rgb(var(--color-option));\n      transition: all 0.3s ease;\n    }\n\n    p {\n      font-size: 1.6rem;\n    }\n  }\n}\n\n// BUTTON\n\n.btn {\n  height: 9.2rem;\n  width: 100%;\n  outline: none;\n  border-style: none;\n\n  color: white;\n  background-color: rgb(var(--color-option));\n  font-size: 2.8rem;\n  border-radius: 8px;\n  cursor: pointer;\n\n  &:hover {\n    filter: brightness(1.2);\n    transition: all 0.3s;\n  }\n\n  &:active {\n    border-style: none;\n    filter: brightness(1.3);\n    transition: all 0.3s;\n  }\n}\n\n// DARK MODE\nbody.dark {\n  --color-text: white;\n  --color-text--secondary: #abc1e1;\n\n  --color-bg: #313e51;\n  --color-quiz: #3b4d66;\n  --color-quiz--icon: 255, 255, 255;\n\n  --img-url: url(\"/public/assets/images/pattern-background-desktop-dark.svg\");\n  --img-icon--sun: url(\"../../public/assets/images/icon-sun-light.svg\");\n  --img-icon--moon: url(\"../../public/assets/images/icon-moon-light.svg\");\n}\n","// COLORS\n$color-error: #ee5454;\n$color-correct: #26d782;\n\n$color-text--dark: #313e51;\n$color-text--light: white;\n\n$color-text-secondary--white: #626c7f;\n$color-option: #a729f5;\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -272,6 +400,7 @@ body.dark {
   \*****************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /*
@@ -366,6 +495,7 @@ module.exports = function (cssWithMappingToString) {
   \********************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 module.exports = function (url, options) {
@@ -401,6 +531,7 @@ module.exports = function (url, options) {
   \************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 module.exports = function (item) {
@@ -426,6 +557,7 @@ module.exports = function (item) {
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -480,6 +612,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \****************************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 var stylesInDOM = [];
@@ -573,6 +706,7 @@ module.exports = function (list, options) {
   \********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 var memo = {};
@@ -616,6 +750,7 @@ module.exports = insertBySelector;
   \**********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -635,6 +770,7 @@ module.exports = insertStyleElement;
   \**********************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -654,6 +790,7 @@ module.exports = setAttributesWithoutAttributes;
   \***************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -724,6 +861,7 @@ module.exports = domAPI;
   \*********************************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /* istanbul ignore next  */
@@ -741,12 +879,150 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./. sync recursive ^\\.\\/public.*$":
+/*!********************************!*\
+  !*** ././ sync ^\.\/public.*$ ***!
+  \********************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var map = {
+	"./public/assets/images/favicon.png": "./public/assets/images/favicon.png",
+	"./public/assets/images/icon-accessibility.svg": "./public/assets/images/icon-accessibility.svg",
+	"./public/assets/images/icon-correct.svg": "./public/assets/images/icon-correct.svg",
+	"./public/assets/images/icon-css.svg": "./public/assets/images/icon-css.svg",
+	"./public/assets/images/icon-error.svg": "./public/assets/images/icon-error.svg",
+	"./public/assets/images/icon-html.svg": "./public/assets/images/icon-html.svg",
+	"./public/assets/images/icon-incorrect.svg": "./public/assets/images/icon-incorrect.svg",
+	"./public/assets/images/icon-js.svg": "./public/assets/images/icon-js.svg",
+	"./public/assets/images/icon-moon-dark.svg": "./public/assets/images/icon-moon-dark.svg",
+	"./public/assets/images/icon-moon-light.svg": "./public/assets/images/icon-moon-light.svg",
+	"./public/assets/images/icon-sun-dark.svg": "./public/assets/images/icon-sun-dark.svg",
+	"./public/assets/images/icon-sun-light.svg": "./public/assets/images/icon-sun-light.svg",
+	"./public/assets/images/pattern-background-desktop-dark.svg": "./public/assets/images/pattern-background-desktop-dark.svg",
+	"./public/assets/images/pattern-background-desktop-light.svg": "./public/assets/images/pattern-background-desktop-light.svg",
+	"./public/assets/images/pattern-background-mobile-dark.svg": "./public/assets/images/pattern-background-mobile-dark.svg",
+	"./public/assets/images/pattern-background-mobile-light.svg": "./public/assets/images/pattern-background-mobile-light.svg",
+	"./public/assets/images/pattern-background-tablet-dark.svg": "./public/assets/images/pattern-background-tablet-dark.svg",
+	"./public/assets/images/pattern-background-tablet-light.svg": "./public/assets/images/pattern-background-tablet-light.svg"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./. sync recursive ^\\.\\/public.*$";
+
+/***/ }),
+
+/***/ "./public/assets/images/favicon.png":
+/*!******************************************!*\
+  !*** ./public/assets/images/favicon.png ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "favicon.png";
+
+/***/ }),
+
+/***/ "./public/assets/images/icon-accessibility.svg":
+/*!*****************************************************!*\
+  !*** ./public/assets/images/icon-accessibility.svg ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "icon-accessibility.svg";
+
+/***/ }),
+
+/***/ "./public/assets/images/icon-correct.svg":
+/*!***********************************************!*\
+  !*** ./public/assets/images/icon-correct.svg ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "icon-correct.svg";
+
+/***/ }),
+
+/***/ "./public/assets/images/icon-css.svg":
+/*!*******************************************!*\
+  !*** ./public/assets/images/icon-css.svg ***!
+  \*******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "icon-css.svg";
+
+/***/ }),
+
+/***/ "./public/assets/images/icon-error.svg":
+/*!*********************************************!*\
+  !*** ./public/assets/images/icon-error.svg ***!
+  \*********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "icon-error.svg";
+
+/***/ }),
+
+/***/ "./public/assets/images/icon-html.svg":
+/*!********************************************!*\
+  !*** ./public/assets/images/icon-html.svg ***!
+  \********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "icon-html.svg";
+
+/***/ }),
+
+/***/ "./public/assets/images/icon-incorrect.svg":
+/*!*************************************************!*\
+  !*** ./public/assets/images/icon-incorrect.svg ***!
+  \*************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "icon-incorrect.svg";
+
+/***/ }),
+
+/***/ "./public/assets/images/icon-js.svg":
+/*!******************************************!*\
+  !*** ./public/assets/images/icon-js.svg ***!
+  \******************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "icon-js.svg";
+
+/***/ }),
+
 /***/ "./public/assets/images/icon-moon-dark.svg":
 /*!*************************************************!*\
   !*** ./public/assets/images/icon-moon-dark.svg ***!
   \*************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "icon-moon-dark.svg";
 
 /***/ }),
@@ -757,6 +1033,7 @@ module.exports = __webpack_require__.p + "icon-moon-dark.svg";
   \**************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "icon-moon-light.svg";
 
 /***/ }),
@@ -767,6 +1044,7 @@ module.exports = __webpack_require__.p + "icon-moon-light.svg";
   \************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "icon-sun-dark.svg";
 
 /***/ }),
@@ -777,6 +1055,7 @@ module.exports = __webpack_require__.p + "icon-sun-dark.svg";
   \*************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "icon-sun-light.svg";
 
 /***/ }),
@@ -787,6 +1066,7 @@ module.exports = __webpack_require__.p + "icon-sun-light.svg";
   \******************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "pattern-background-desktop-dark.svg";
 
 /***/ }),
@@ -797,7 +1077,52 @@ module.exports = __webpack_require__.p + "pattern-background-desktop-dark.svg";
   \*******************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 module.exports = __webpack_require__.p + "pattern-background-desktop-light.svg";
+
+/***/ }),
+
+/***/ "./public/assets/images/pattern-background-mobile-dark.svg":
+/*!*****************************************************************!*\
+  !*** ./public/assets/images/pattern-background-mobile-dark.svg ***!
+  \*****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "pattern-background-mobile-dark.svg";
+
+/***/ }),
+
+/***/ "./public/assets/images/pattern-background-mobile-light.svg":
+/*!******************************************************************!*\
+  !*** ./public/assets/images/pattern-background-mobile-light.svg ***!
+  \******************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "pattern-background-mobile-light.svg";
+
+/***/ }),
+
+/***/ "./public/assets/images/pattern-background-tablet-dark.svg":
+/*!*****************************************************************!*\
+  !*** ./public/assets/images/pattern-background-tablet-dark.svg ***!
+  \*****************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "pattern-background-tablet-dark.svg";
+
+/***/ }),
+
+/***/ "./public/assets/images/pattern-background-tablet-light.svg":
+/*!******************************************************************!*\
+  !*** ./public/assets/images/pattern-background-tablet-light.svg ***!
+  \******************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "pattern-background-tablet-light.svg";
 
 /***/ }),
 
@@ -807,6 +1132,7 @@ module.exports = __webpack_require__.p + "pattern-background-desktop-light.svg";
   \************************/
 /***/ ((module) => {
 
+"use strict";
 module.exports = /*#__PURE__*/JSON.parse('{"quizzes":[{"title":"HTML","icon":"./assets/images/icon-html.svg","questions":[{"question":"What does HTML stand for?","options":["Hyper Trainer Marking Language","Hyper Text Marketing Language","Hyper Text Markup Language","Hyper Text Markup Leveler"],"answer":"Hyper Text Markup Language"},{"question":"Which of the following is the correct structure for an HTML document?","options":["<html><head></head><body></body></html>","<head><html></html><body></body></head>","<body><head></head><html></html></body>","<html><body></body><head></head></html>"],"answer":"<html><head></head><body></body></html>"},{"question":"Which HTML element is used to define the title of a document?","options":["<head>","<title>","<header>","<top>"],"answer":"<title>"},{"question":"What is the purpose of the <body> tag in HTML?","options":["It defines the document\'s head section.","It contains all the content such as text, images, and links.","It is used to define the main content of an HTML document.","It specifies the body of the email content in HTML."],"answer":"It contains all the content such as text, images, and links."},{"question":"Which HTML tag is used to create a hyperlink?","options":["<hyperlink>","<link>","<a>","<href>"],"answer":"<a>"},{"question":"Which tag is used to display images in HTML?","options":["<img>","<image>","<src>","<pic>"],"answer":"<img>"},{"question":"What attribute is used to provide the path of an image in the <img> tag?","options":["link","src","href","url"],"answer":"src"},{"question":"Which HTML tag is used to create an unordered list?","options":["<ul>","<ol>","<list>","<li>"],"answer":"<ul>"},{"question":"What does the <br> tag do?","options":["It breaks the text into two sections.","It creates a bold text.","It inserts a line break.","It adds a new row in a table."],"answer":"It inserts a line break."},{"question":"In HTML, what does the `fieldset` tag do?","options":["It is used to group related data in a form.","It sets the field to a fixed size.","It automatically validates the fields within a form.","It hides the fields in a form."],"answer":"It is used to group related data in a form."}]},{"title":"CSS","icon":"./assets/images/icon-css.svg","questions":[{"question":"What does CSS stand for?","options":["Colorful Style Sheets","Computer Style Sheets","Cascading Style Sheets","Creative Style Sheets"],"answer":"Cascading Style Sheets"},{"question":"Which HTML attribute is used to define inline styles?","options":["styles","style","class","font-style"],"answer":"style"},{"question":"How do you insert a comment in a CSS file?","options":["// this is a comment //","/* this is a comment */","-- this is a comment --","<!-- this is a comment -->"],"answer":"/* this is a comment */"},{"question":"Which property is used to change the background color of an element?","options":["color","bgcolor","background-color","background"],"answer":"background-color"},{"question":"How do you apply a style to all <p> elements?","options":["p { }",".p { }","#p { }","all.p { }"],"answer":"p { }"},{"question":"Which property is used to change the font of an element?","options":["font-style","text-style","font-family","typeface"],"answer":"font-family"},{"question":"How do you make each word in a text start with a capital letter?","options":["text-transform: capitalize","text-transform: uppercase","text-style: capital","font-transform: capitalize"],"answer":"text-transform: capitalize"},{"question":"How do you select an element with the class name \'header\'?","options":[".header","#header","header","*header"],"answer":".header"},{"question":"What is the default value of the \'position\' property?","options":["relative","fixed","absolute","static"],"answer":"static"},{"question":"What is the purpose of the z-index property in CSS?","options":["To count the number of elements","To set the magnification level of an element","To specify the stack order of an element","To create a zoom effect"],"answer":"To specify the stack order of an element"}]},{"title":"JavaScript","icon":"./assets/images/icon-js.svg","questions":[{"question":"Which syntax is correct to output \'Hello World\' in an alert box?","options":["alertBox(\'Hello World\');","msg(\'Hello World\');","alert(\'Hello World\');","msgBox(\'Hello World\');"],"answer":"alert(\'Hello World\');"},{"question":"How do you call a function named \'myFunction\'?","options":["call function myFunction()","call myFunction()","myFunction()","execute myFunction()"],"answer":"myFunction()"},{"question":"How to write an IF statement in JavaScript?","options":["if i = 5 then","if (i == 5)","if i == 5","if i = 5"],"answer":"if (i == 5)"},{"question":"How to write an IF statement for executing some code if \'i\' is NOT equal to 5?","options":["if (i <> 5)","if i =! 5 then","if (i != 5)","if i not = 5"],"answer":"if (i != 5)"},{"question":"How does a FOR loop start?","options":["for (i = 0; i <= 5)","for i = 1 to 5","for (i <= 5; i++)","for (i = 0; i <= 5; i++)"],"answer":"for (i = 0; i <= 5; i++)"},{"question":"How can you add a single-line comment in JavaScript?","options":["\'This is a single-line comment","//This is a single-line comment","<!--This is a single-line comment-->","/* This is a single-line comment */"],"answer":"//This is a single-line comment"},{"question":"What is the correct way to write a JavaScript array?","options":["var colors = (1:\'red\', 2:\'green\', 3:\'blue\')","var colors = [\'red\', \'green\', \'blue\']","var colors = \'red\', \'green\', \'blue\'","var colors = 1 = (\'red\'), 2 = (\'green\'), 3 = (\'blue\')"],"answer":"var colors = [\'red\', \'green\', \'blue\']"},{"question":"How do you find the number with the highest value of x and y?","options":["Math.ceil(x, y)","top(x, y)","Math.max(x, y)","Math.highest(x, y)"],"answer":"Math.max(x, y)"},{"question":"Which operator is used to assign a value to a variable?","options":["-","*","=","x"],"answer":"="},{"question":"What is the correct way to write a JavaScript object?","options":["var person = {firstName: \'John\', lastName: \'Doe\'};","var person = {firstName = \'John\', lastName = \'Doe\'};","var person = (firstName: \'John\', lastName: \'Doe\');","var person = (firstName = \'John\', lastName = \'Doe\');"],"answer":"var person = {firstName: \'John\', lastName: \'Doe\'};"}]},{"title":"Accessibility","icon":"./assets/images/icon-accessibility.svg","questions":[{"question":"What does \'WCAG\' stand for?","options":["Web Content Accessibility Guidelines","Web Compliance Accessibility Guide","Web Content Accessibility Goals","Website Compliance and Accessibility Guidelines"],"answer":"Web Content Accessibility Guidelines"},{"question":"Which element is used to provide alternative text for images for screen reader users?","options":["<alt>","<figcaption>","<description>","<img alt=\'description\'>"],"answer":"<img alt=\'description\'>"},{"question":"What does ARIA stand for in web development?","options":["Accessible Rich Internet Applications","Advanced Responsive Internet Assistance","Accessible Responsive Internet Applications","Automated Responsive Internet Actions"],"answer":"Accessible Rich Internet Applications"},{"question":"Which of the following is not a principle of the WCAG?","options":["Perceivable","Dependable","Operable","Understandable"],"answer":"Dependable"},{"question":"Which of these color contrast ratios defines the minimum WCAG 2.1 Level AA requirement for normal text?","options":["3:1","4.5:1","7:1","2:1"],"answer":"4.5:1"},{"question":"Which of the following elements is inherently focusable, meaning it can receive focus without a \'tabindex\' attribute?","options":["<div>","<span>","<a href=\'...\'>","<p>"],"answer":"<a href=\'...\'>"},{"question":"What is the purpose of the \'lang\' attribute in an HTML page?","options":["To specify the scripting language","To define the character set","To indicate the language of the page content","To declare a language pack"],"answer":"To indicate the language of the page content"},{"question":"Which guideline ensures that content is accessible by keyboard as well as by mouse?","options":["Keyboard Accessible","Mouse Independence","Device Independence","Operable Controls"],"answer":"Keyboard Accessible"},{"question":"What is the role of \'skip navigation\' links in web accessibility?","options":["To skip over primary navigation to the main content","To provide shortcuts to different sections of the website","To help users skip unwanted sections like advertisements","To bypass broken links in the navigation"],"answer":"To skip over primary navigation to the main content"},{"question":"Which of these tools can help in checking the accessibility of a website?","options":["W3C Validator","Google Lighthouse","CSS Validator","JavaScript Console"],"answer":"Google Lighthouse"}]}]}');
 
 /***/ })
@@ -949,8 +1275,9 @@ module.exports = /*#__PURE__*/JSON.parse('{"quizzes":[{"title":"HTML","icon":"./
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
+"use strict";
 var exports = __webpack_exports__;
 /*!***********************!*\
   !*** ./src/script.ts ***!
@@ -960,7 +1287,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
 const data = __webpack_require__(/*! ../data/data.json */ "./data/data.json");
 const quizzes = data.quizzes;
-console.log(data);
+const ABCD = ["A", "B", "C", "D"];
 // COLOR SCHEME
 function changeColorScheme() {
     const themeBTN = document.querySelector(".theme__btn");
@@ -987,34 +1314,112 @@ function changeColorScheme() {
 }
 changeColorScheme();
 // show subjects
-function showSubects() {
+function showSubjects() {
+    const container = document.querySelector(".container");
     const subjects = document.querySelector(".subjects");
     try {
         if (subjects) {
             subjects.innerHTML = quizzes
                 .map((subject, index) => {
                 const icon = subject.icon.slice(1);
-                console.log(icon);
-                // const imagePath = require(`../public${icon}`);
-                // console.log(imagePath);
+                const imagePath = __webpack_require__("./. sync recursive ^\\.\\/public.*$")(`./public${icon}`);
                 return `
         <li data-index="${index}" class="subjects__subject">
-        <img src="../public${icon}" alt="${subject.title}" />
+        <img src="${imagePath}" alt="${subject.title}" />
         <p>${subject.title}</p>
         </li>
         `;
             })
                 .join("");
+            const subject = document.querySelectorAll(".subjects__subject");
+            subject.forEach((sub) => {
+                sub.addEventListener("click", (e) => {
+                    if (e.target instanceof HTMLElement) {
+                        const dataIndex = sub.dataset.index;
+                        if (dataIndex) {
+                            const index = Number(dataIndex);
+                            console.log(index);
+                            console.log(typeof index);
+                            container === null || container === void 0 ? void 0 : container.classList.remove("show");
+                            quiz(index);
+                        }
+                    }
+                });
+            });
+            console.log(subject);
         }
     }
     catch (error) {
         console.log(error);
     }
 }
-showSubects();
+// QUIZ MARK
+function quiz(index) {
+    const quizData = quizzes[index];
+    try {
+        if (quizData.title) {
+            const quiz = document.querySelector(".quiz");
+            const subject = document.querySelector(".header__subject");
+            quiz === null || quiz === void 0 ? void 0 : quiz.classList.add("show");
+            if (subject) {
+                const icon = quizData.icon.split("/").pop();
+                subject.innerHTML = `
+          <img src="./${icon}" alt="${quizData.title}" />
+          <p>${quizData.title}</p>
+        `;
+            }
+            function task() {
+                const questions = quizData.questions;
+                const quizHome = document.querySelector(".quiz__home");
+                const quizAnswers = document.querySelector(".quiz__answers");
+                let questionNumber = 0;
+                console.log(questions);
+                function question(questionId) {
+                    quizHome.innerHTML = `
+          <p>Question ${questionId + 1} of ${questions.length}</p>
+          <h2>${questions[questionId].question}</h2>
+          `;
+                    if (quizAnswers) {
+                        quizAnswers.innerHTML = `${questions[questionId].options
+                            .map((option, i) => `<li class="quiz__answer" data-answerIndex="${i}">
+              <p class='quiz__option' >${ABCD[i]}</p>
+              <p>${option}</p>
+              </li>`)
+                            .join("")}
+              `;
+                        quizAnswers.innerHTML += `<button type='button' class="btn" >Submit Answer</button>`;
+                        const quizAnswer = document.querySelectorAll(".quiz__answer");
+                        console.log(quizAnswer);
+                        quizAnswer.forEach((answer) => {
+                            console.log(answer);
+                            answer.addEventListener("click", (e) => {
+                                if (e.target instanceof HTMLElement) {
+                                    const dataIndex = answer.dataset.indexAnswer;
+                                    if (dataIndex) {
+                                        const index = Number(dataIndex);
+                                        console.log(index);
+                                        console.log(typeof index);
+                                    }
+                                }
+                            });
+                        });
+                    }
+                }
+                question(questionNumber);
+            }
+            task();
+        }
+        else
+            return;
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+showSubjects();
 
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle.6b912d0b03d512a39bd6.js.map
+//# sourceMappingURL=bundle.80916f715d39b3c4c3f3.js.map
