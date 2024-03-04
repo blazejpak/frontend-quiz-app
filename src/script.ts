@@ -102,9 +102,9 @@ function quiz(index: number) {
 
   try {
     if (quizData.title) {
-      const quiz: HTMLElement | null = document.querySelector(".quiz");
-      const subject: HTMLElement | null =
-        document.querySelector(".header__subject");
+      const quiz: HTMLElement = document.querySelector(".quiz")!;
+      const subject: HTMLElement = document.querySelector(".header__subject")!;
+      let quizPoints: number = 0;
 
       quiz?.classList.add("show");
       if (subject) {
@@ -122,7 +122,7 @@ function quiz(index: number) {
         const quizAnswers: HTMLUListElement =
           document.querySelector(".quiz__answers")!;
         let questionNumber: number = 0;
-        let pickedAnswer: number;
+        let pickedAnswer: number | undefined;
         console.log(questions);
 
         function question(questionId: number) {
@@ -135,10 +135,12 @@ function quiz(index: number) {
             quizAnswers.innerHTML = `${questions[questionId].options
               .map((option, i) => {
                 // TODO
-                const text = JSON.stringify(option);
+                const text = document.createElement("div");
+                text.innerText = option;
+                const escapedText = text.innerHTML;
                 return `<li class="quiz__answer" data-answerindex="${i}">
               <p class='quiz__option' >${ABCD[i]}</p>
-              <p>${text}</p>
+              <p>${escapedText}</p>
               </li>`;
               })
               .join("")}
@@ -163,6 +165,12 @@ function quiz(index: number) {
                     });
 
                     pickedAnswer = index;
+                    buttonFn(pickedAnswer);
+                    const removeErrorMessage =
+                      document.querySelector(".quiz__error");
+                    if (removeErrorMessage) {
+                      removeErrorMessage.remove();
+                    }
                   }
                 }
               });
@@ -170,61 +178,94 @@ function quiz(index: number) {
 
             const button: HTMLButtonElement = document.querySelector(".btn")!;
 
-            button.addEventListener("click", () => {
-              const correctAnswer = questions[questionNumber].answer;
-              const correctAnswerIndex =
-                questions[questionNumber].options.indexOf(correctAnswer);
-              console.log(correctAnswerIndex);
-
-              if (pickedAnswer === 0 || pickedAnswer) {
-                console.log(
-                  questions[questionNumber].options[pickedAnswer] ===
-                    questions[questionNumber].answer
-                );
-
-                if (
-                  questions[questionNumber].options[pickedAnswer] ===
-                  questions[questionNumber].answer
-                ) {
-                  quizAnswer.forEach((answer, i) => {
-                    answer.classList.toggle("correct", i === pickedAnswer);
-                    answer.classList.remove("active");
-
-                    answer.classList.add("disabled");
-                  });
+            function buttonFn(pickedId: number | undefined) {
+              button.addEventListener("click", () => {
+                console.log(pickedId);
+                if (pickedId === undefined) {
+                  const errorMessage = document.createElement("div");
+                  errorMessage.classList.add("quiz__error");
+                  errorMessage.innerHTML = `
+                        <img alt='error icon' src='./icon-error.svg' />
+                        <p>Please select an answer</p>
+                `;
+                  quizAnswers.appendChild(errorMessage);
                 } else {
-                  quizAnswer.forEach((answer, i) => {
-                    answer.classList.toggle("error", i === pickedAnswer);
-                    answer.classList.toggle(
-                      "correct",
-                      i === correctAnswerIndex
-                    );
-                    answer.classList.remove("active");
-                    answer.classList.add("disabled");
-                  });
+                  const removeErrorMessage =
+                    document.querySelector(".quiz__error");
+                  if (removeErrorMessage) {
+                    removeErrorMessage.remove();
+                  }
+
+                  const correctAnswer = questions[questionNumber].answer;
+                  const correctAnswerIndex =
+                    questions[questionNumber].options.indexOf(correctAnswer);
+
+                  if (pickedId === 0 || pickedId) {
+                    if (
+                      questions[questionNumber].options[pickedId] ===
+                      questions[questionNumber].answer
+                    ) {
+                      quizPoints++;
+                      quizAnswer.forEach((answer, i) => {
+                        answer.classList.toggle("correct", i === pickedId);
+                        answer.classList.remove("active");
+                        answer.classList.add("disabled");
+                      });
+                    } else {
+                      quizAnswer.forEach((answer, i) => {
+                        answer.classList.toggle("error", i === pickedId);
+                        answer.classList.toggle(
+                          "correct",
+                          i === correctAnswerIndex
+                        );
+                        answer.classList.remove("active");
+                        answer.classList.add("disabled");
+                      });
+                    }
+
+                    const nextButton: HTMLButtonElement =
+                      document.createElement("button");
+                    nextButton.textContent = "Next Answer";
+                    nextButton.classList.add("btn");
+
+                    if (questionNumber < 9 && questionNumber >= 0) {
+                      console.log(questionNumber);
+                      button.parentNode?.replaceChild(nextButton, button);
+
+                      nextButton.addEventListener("click", (e) => {
+                        quizAnswer.forEach((answer, i) => {
+                          answer.classList.remove("correct");
+                          answer.classList.remove("active");
+                          answer.classList.remove("disabled");
+                          answer.classList.remove("error");
+                        });
+
+                        questionNumber++;
+                        question(questionNumber);
+                      });
+                    } else {
+                      nextButton.textContent = "Submit Quiz";
+                      button.parentNode?.replaceChild(nextButton, button);
+
+                      nextButton.addEventListener("click", (e) => {
+                        quizAnswer.forEach((answer, i) => {
+                          answer.classList.remove("correct");
+                          answer.classList.remove("active");
+                          answer.classList.remove("disabled");
+                          answer.classList.remove("error");
+                        });
+
+                        quiz?.classList.remove("show");
+
+                        quizCompleted(index, quizPoints);
+                      });
+                    }
+                    pickedAnswer = undefined;
+                  } else console.log("error");
                 }
-
-                const nextButton = document.createElement("button");
-                nextButton.textContent = "Next Answer";
-                nextButton.classList.add("btn");
-
-                button.parentNode?.replaceChild(nextButton, button);
-
-                nextButton.addEventListener("click", (e) => {
-                  quizAnswer.forEach((answer, i) => {
-                    answer.classList.remove("correct");
-                    answer.classList.remove("active");
-                    answer.classList.remove("disabled");
-                    answer.classList.remove("error");
-                  });
-
-                  questionNumber++;
-                  question(questionNumber);
-                });
-              } else console.log("error");
-            });
-            console.log(questions[questionNumber]);
-            console.log(pickedAnswer);
+              });
+            }
+            buttonFn(pickedAnswer);
           }
         }
 
@@ -236,6 +277,12 @@ function quiz(index: number) {
   } catch (error) {
     console.log(error);
   }
+}
+
+// QUIZ COMPLETED TODO
+
+function quizCompleted(quizIndexSubject: number, points: number) {
+  console.log(quizIndexSubject, points);
 }
 
 showSubjects();

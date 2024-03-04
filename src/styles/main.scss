@@ -1,5 +1,4 @@
-@use "./globals//reset";
-@use "./globals/variables" as variables;
+@use "./globals/reset";
 
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
@@ -99,7 +98,7 @@ body {
     position: relative;
     height: 2.8rem;
     width: 4.8rem;
-    background-color: variables.$color-option;
+    background-color: rgb(var(--color-option));
 
     cursor: pointer;
   }
@@ -286,6 +285,18 @@ body {
       font-size: 1.6rem;
     }
   }
+
+  &__error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3.2rem;
+
+    p {
+      color: var(--color-error);
+      font-size: 2.4rem;
+    }
+  }
 }
 
 // BUTTON
@@ -326,4 +337,36 @@ body.dark {
   --img-url: url("/public/assets/images/pattern-background-desktop-dark.svg");
   --img-icon--sun: url("../../public/assets/images/icon-sun-light.svg");
   --img-icon--moon: url("../../public/assets/images/icon-moon-light.svg");
+}
+
+// MEDIA QUERRIES
+
+@media screen and (max-width: 1000px) {
+  //MAIN SUBJECTS
+  .container {
+    &.show {
+      display: grid;
+
+      gap: 3.2rem;
+      grid-template-columns: 1fr;
+      grid-template-rows: max-content 1fr;
+      color: var(--color-text);
+    }
+  }
+  .home h1 {
+    font-size: 4rem;
+  }
+
+  // QUIZ
+  .quiz {
+    &.show {
+      grid-template-columns: 1fr;
+      grid-template-rows: max-content 1fr;
+      gap: 3.2rem;
+    }
+
+    &__home h2 {
+      font-size: 4rem;
+    }
+  }
 }
