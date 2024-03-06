@@ -61,7 +61,7 @@ function showSubjects() {
 
           return `
         <li data-index="${index}" class="subjects__subject">
-        <img src="${imagePath}" alt="${subject.title}" />
+        <img src="${imagePath}" alt="${subject.title} icon" />
         <p>${subject.title}</p>
         </li>
         `;
@@ -296,7 +296,7 @@ function quizCompleted(quizData: Questions, points: number) {
   result.innerHTML = `
   <div class='result__home ' >
     <p>Quiz completed</p>
-    <h3>You scored...</h3>
+    <h2>You scored...</h2>
   </div>
   <div class='result__info' >
     <div class='result__box'>
