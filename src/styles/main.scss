@@ -37,31 +37,27 @@ body {
   background-image: var(--img-url);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-
   background-color: rgb(var(--color-bg));
   color: rgb(var(--color-text));
+  display: grid;
+  grid-template-rows: 25% 1fr 15%;
   min-height: 100dvh;
   overflow-x: hidden;
   padding: 0 10%;
   width: 100%;
-
-  display: grid;
-  grid-template-rows: 25% 1fr 15%;
 }
-// HEADER
 
 // THEME BUTTON
 .header {
-  width: 100%;
-
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  width: 100%;
 
   &__subject {
+    align-items: center;
     display: flex;
     gap: 3.2rem;
-    align-items: center;
 
     img {
       background-color: rgba(var(--color-quiz--icon), 0.05);
@@ -76,43 +72,41 @@ body {
 }
 
 .theme {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: 1.6rem;
 
   &__icon--sun {
-    height: 2.4rem;
-    width: 2.4rem;
     background-image: var(--img-icon--sun);
     background-repeat: no-repeat;
+    height: 2.4rem;
+    width: 2.4rem;
   }
 
   &__icon--moon {
-    height: 2.4rem;
-    width: 2.4rem;
     background-image: var(--img-icon--moon);
     background-repeat: no-repeat;
+    height: 2.4rem;
+    width: 2.4rem;
   }
 
   &__btn {
-    position: relative;
-    height: 2.8rem;
-    width: 4.8rem;
     background-color: rgb(var(--color-option));
-
     cursor: pointer;
+    height: 2.8rem;
+    position: relative;
+    width: 4.8rem;
   }
   &__btn::before {
-    position: absolute;
-    content: "";
-    height: 2rem;
-    width: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
     background-color: white;
     border-radius: 100%;
-
+    content: "";
+    height: 2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     transition: left 0.3s ease, right 0.3s ease;
+    width: 2rem;
   }
 }
 
@@ -129,12 +123,11 @@ body {
 .container {
   display: none;
   &.show {
+    color: rgb(var(--color-text));
     display: grid;
-
     gap: 3.2rem;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
-    color: rgb(var(--color-text));
   }
 }
 .home {
@@ -147,8 +140,8 @@ body {
   }
 
   p {
-    font-size: 2rem;
     color: rgb(var(--color-text--secondary));
+    font-size: 2rem;
   }
 }
 
@@ -158,17 +151,15 @@ body {
   gap: 3.2rem;
 
   &__subject {
-    display: flex;
     align-items: center;
-    gap: 3.2rem;
-
     background-color: rgb(var(--color-quiz));
-    padding: 1.2rem;
     border-radius: 8px;
-
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
     border: 3px solid transparent;
+    cursor: pointer;
+    display: flex;
+    gap: 3.2rem;
+    padding: 1.2rem;
 
     &:hover {
       border: 3px solid rgba(var(--color-option), 0.5);
@@ -198,12 +189,11 @@ body {
 .quiz {
   display: none;
   &.show {
+    color: rgb(var(--color-text));
     display: grid;
-
     gap: 3.2rem;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
-    color: rgb(var(--color-text));
   }
 
   &__home {
@@ -216,8 +206,8 @@ body {
     }
 
     p {
-      font-size: 2rem;
       color: rgb(var(--color-text--secondary));
+      font-size: 2rem;
     }
   }
 
@@ -230,22 +220,20 @@ body {
   &__option {
     background-color: rgba(var(--color-quiz--icon), 0.05);
     border-radius: 8px;
-    padding: 1.6rem;
     font-weight: bold;
+    padding: 1.6rem;
   }
 
   &__answer {
-    display: flex;
     align-items: center;
-    gap: 3.2rem;
-
     background-color: rgb(var(--color-quiz));
-    padding: 1.2rem;
     border-radius: 8px;
     border: 1px solid transparent;
-
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    display: flex;
+    gap: 3.2rem;
+    padding: 1.2rem;
 
     &.active {
       border: solid 1px rgb(var(--color-option));
@@ -287,10 +275,10 @@ body {
   }
 
   &__error {
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
     gap: 3.2rem;
+    justify-content: center;
 
     p {
       color: rgb(var(--color-error));
@@ -305,16 +293,16 @@ body {
   display: none;
 
   &.show {
+    color: rgb(var(--color-text));
     display: grid;
     grid-template-columns: 1fr 1fr;
-    color: rgb(var(--color-text));
   }
 
   &__home {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
     font-size: 6.4rem;
+    gap: 1.2rem;
 
     h3 {
       font-weight: bold;
@@ -322,8 +310,8 @@ body {
   }
 
   &__title {
-    display: flex;
     align-items: center;
+    display: flex;
     gap: 3.2rem;
 
     span {
@@ -338,21 +326,21 @@ body {
   }
 
   &__info {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 3.2rem;
   }
   &__box {
-    width: 100%;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    background-color: rgb(var(--color-quiz));
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1.6rem;
     padding: 3.2rem;
-    border-radius: 8px;
-
-    background-color: rgb(var(--color-quiz));
+    width: 100%;
   }
 
   &__length {
@@ -368,16 +356,15 @@ body {
 // BUTTON
 
 .btn {
-  height: 9.2rem;
-  width: 100%;
-  outline: none;
-  border-style: none;
-
   color: white;
+  border-style: none;
   background-color: rgb(var(--color-option));
-  font-size: 2.8rem;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 2.8rem;
+  height: 9.2rem;
+  outline: none;
+  width: 100%;
 
   &:hover {
     filter: brightness(1.2);
@@ -411,12 +398,11 @@ body.dark {
   //MAIN SUBJECTS
   .container {
     &.show {
+      color: rgb(var(--color-text));
       display: grid;
-
       gap: 3.2rem;
       grid-template-columns: 1fr;
       grid-template-rows: max-content 1fr;
-      color: rgb(var(--color-text));
     }
   }
   .home h1 {
