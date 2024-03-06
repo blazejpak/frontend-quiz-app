@@ -146,14 +146,14 @@ input {
 }
 
 :root {
-  --color-text: #313e51;
-  --color-text--secondary: #626c7f;
-  --color-bg: white;
-  --color-quiz: white;
+  --color-text: 49, 62, 81;
+  --color-text--secondary: 98, 108, 127;
+  --color-bg: 255, 255, 255;
+  --color-quiz: 255, 255, 255;
   --color-quiz--icon: 0, 0, 0;
   --color-option: 167, 41, 245;
-  --color-error: rgb(238, 84, 84);
-  --color-correct: rgb(38, 215, 130);
+  --color-error: 238, 84, 84;
+  --color-correct: 38, 215, 130;
   --img-url: url(${___CSS_LOADER_URL_REPLACEMENT_0___});
   --img-icon--sun: url(${___CSS_LOADER_URL_REPLACEMENT_1___});
   --img-icon--moon: url(${___CSS_LOADER_URL_REPLACEMENT_2___});
@@ -168,14 +168,14 @@ body {
   background-image: var(--img-url);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background-color: rgb(var(--color-bg));
+  color: rgb(var(--color-text));
+  display: grid;
+  grid-template-rows: 25% 1fr 15%;
   min-height: 100dvh;
   overflow-x: hidden;
   padding: 0 10%;
   width: 100%;
-  display: grid;
-  grid-template-rows: 25% 1fr 15%;
 }
 body .dark {
   color-scheme: dark;
@@ -185,15 +185,16 @@ body .light {
 }
 
 .header {
-  width: 100%;
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  width: 100%;
 }
 .header__subject {
+  align-items: center;
   display: flex;
   gap: 3.2rem;
-  align-items: center;
+  border-radius: 8px;
 }
 .header__subject img {
   background-color: rgba(var(--color-quiz--icon), 0.05);
@@ -205,39 +206,39 @@ body .light {
 }
 
 .theme {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: 1.6rem;
 }
 .theme__icon--sun {
-  height: 2.4rem;
-  width: 2.4rem;
   background-image: var(--img-icon--sun);
   background-repeat: no-repeat;
-}
-.theme__icon--moon {
   height: 2.4rem;
   width: 2.4rem;
+}
+.theme__icon--moon {
   background-image: var(--img-icon--moon);
   background-repeat: no-repeat;
+  height: 2.4rem;
+  width: 2.4rem;
 }
 .theme__btn {
-  position: relative;
-  height: 2.8rem;
-  width: 4.8rem;
   background-color: rgb(var(--color-option));
   cursor: pointer;
+  height: 2.8rem;
+  position: relative;
+  width: 4.8rem;
 }
 .theme__btn::before {
-  position: absolute;
-  content: "";
-  height: 2rem;
-  width: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
   background-color: white;
   border-radius: 100%;
+  content: "";
+  height: 2rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   transition: left 0.3s ease, right 0.3s ease;
+  width: 2rem;
 }
 
 .dark .theme__btn::before {
@@ -252,11 +253,11 @@ body .light {
   display: none;
 }
 .container.show {
+  color: rgb(var(--color-text));
   display: grid;
   gap: 3.2rem;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
-  color: var(--color-text);
 }
 
 .home {
@@ -268,8 +269,8 @@ body .light {
   font-size: 6.4rem;
 }
 .home p {
+  color: rgb(var(--color-text--secondary));
   font-size: 2rem;
-  color: var(--color-text--secondary);
 }
 
 .subjects {
@@ -278,15 +279,15 @@ body .light {
   gap: 3.2rem;
 }
 .subjects__subject {
-  display: flex;
   align-items: center;
-  gap: 3.2rem;
-  background-color: var(--color-quiz);
-  padding: 1.2rem;
+  background-color: rgb(var(--color-quiz));
   border-radius: 8px;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
   border: 3px solid transparent;
+  cursor: pointer;
+  display: flex;
+  gap: 3.2rem;
+  padding: 1.2rem;
 }
 .subjects__subject:hover {
   border: 3px solid rgba(var(--color-option), 0.5);
@@ -310,11 +311,11 @@ body .light {
   display: none;
 }
 .quiz.show {
+  color: rgb(var(--color-text));
   display: grid;
   gap: 3.2rem;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
-  color: var(--color-text);
 }
 .quiz__home {
   display: flex;
@@ -325,8 +326,8 @@ body .light {
   font-size: 6.4rem;
 }
 .quiz__home p {
+  color: rgb(var(--color-text--secondary));
   font-size: 2rem;
-  color: var(--color-text--secondary);
 }
 .quiz__answers {
   display: flex;
@@ -336,28 +337,28 @@ body .light {
 .quiz__option {
   background-color: rgba(var(--color-quiz--icon), 0.05);
   border-radius: 8px;
-  padding: 1.6rem;
   font-weight: bold;
+  padding: 1.6rem;
 }
 .quiz__answer {
-  display: flex;
   align-items: center;
-  gap: 3.2rem;
-  background-color: var(--color-quiz);
-  padding: 1.2rem;
+  background-color: rgb(var(--color-quiz));
   border-radius: 8px;
   border: 1px solid transparent;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  display: flex;
+  gap: 3.2rem;
+  padding: 1.2rem;
 }
 .quiz__answer.active {
   border: solid 1px rgb(var(--color-option));
 }
 .quiz__answer.error {
-  border: solid 1px var(--color-error);
+  border: solid 1px rgb(var(--color-error));
 }
 .quiz__answer.correct {
-  border: solid 1px var(--color-correct);
+  border: solid 1px rgb(var(--color-correct));
 }
 .quiz__answer:not(.active):hover .quiz__option {
   background-color: rgba(var(--color-option), 0.1);
@@ -370,10 +371,10 @@ body .light {
   transition: all 0.3s ease;
 }
 .quiz__answer.error .quiz__option {
-  background-color: var(--color-error);
+  background-color: rgb(var(--color-error));
 }
 .quiz__answer.correct .quiz__option {
-  background-color: var(--color-correct);
+  background-color: rgb(var(--color-correct));
 }
 .quiz__answer.disabled {
   pointer-events: none;
@@ -382,26 +383,81 @@ body .light {
   font-size: 1.6rem;
 }
 .quiz__error {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   gap: 3.2rem;
+  justify-content: center;
 }
 .quiz__error p {
-  color: var(--color-error);
+  color: rgb(var(--color-error));
   font-size: 2.4rem;
 }
 
-.btn {
-  height: 9.2rem;
-  width: 100%;
-  outline: none;
-  border-style: none;
-  color: white;
-  background-color: rgb(var(--color-option));
+.result {
+  display: none;
+}
+.result.show {
+  color: rgb(var(--color-text));
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.result__home {
+  display: flex;
+  flex-direction: column;
+  font-size: 6.4rem;
+  gap: 1.2rem;
+}
+.result__home h3 {
+  font-weight: bold;
+}
+.result__title {
+  align-items: center;
+  display: flex;
+  gap: 3.2rem;
+}
+.result__title span {
   font-size: 2.8rem;
+}
+.result__title img {
+  background-color: rgba(var(--color-quiz--icon), 0.05);
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+.result__info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+.result__box {
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  background-color: rgb(var(--color-quiz));
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: 3.2rem;
+  width: 100%;
+}
+.result__length {
+  font-size: 2.4rem;
+}
+.result__points {
+  font-size: 14.4rem;
+  font-weight: bold;
+}
+
+.btn {
+  color: white;
+  border-style: none;
+  background-color: rgb(var(--color-option));
   border-radius: 8px;
   cursor: pointer;
+  font-size: 2.8rem;
+  height: 9.2rem;
+  outline: none;
+  width: 100%;
 }
 .btn:hover {
   filter: brightness(1.2);
@@ -414,10 +470,10 @@ body .light {
 }
 
 body.dark {
-  --color-text: white;
-  --color-text--secondary: #abc1e1;
-  --color-bg: #313e51;
-  --color-quiz: #3b4d66;
+  --color-text: 255, 255, 255;
+  --color-text--secondary: 171, 193, 225;
+  --color-bg: 49, 62, 81;
+  --color-quiz: 59, 77, 102;
   --color-quiz--icon: 255, 255, 255;
   --img-url: url(${___CSS_LOADER_URL_REPLACEMENT_3___});
   --img-icon--sun: url(${___CSS_LOADER_URL_REPLACEMENT_4___});
@@ -426,11 +482,11 @@ body.dark {
 
 @media screen and (max-width: 1000px) {
   .container.show {
+    color: rgb(var(--color-text));
     display: grid;
     gap: 3.2rem;
     grid-template-columns: 1fr;
     grid-template-rows: max-content 1fr;
-    color: var(--color-text);
   }
   .home h1 {
     font-size: 4rem;
@@ -443,7 +499,12 @@ body.dark {
   .quiz__home h2 {
     font-size: 4rem;
   }
-}`, "",{"version":3,"sources":["webpack://./src/styles/globals/_reset.scss","webpack://./src/styles/main.scss"],"names":[],"mappings":"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","sourcesContent":["*,\n*:before,\n*:after {\n  box-sizing: border-box;\n}\n\nhtml,\nbody,\ndiv,\nspan,\nobject,\niframe,\nfigure,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\ncode,\nem,\nimg,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nb,\nu,\ni,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\nmain,\ncanvas,\nembed,\nfooter,\nheader,\nnav,\nsection,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n  text-rendering: optimizeLegibility;\n  -webkit-font-smoothing: antialiased;\n  text-size-adjust: none;\n}\n\nfooter,\nheader,\nnav,\nsection,\nmain {\n  display: block;\n}\n\nbody {\n  line-height: 1;\n}\n\nol,\nul {\n  list-style: none;\n}\n\nblockquote,\nq {\n  quotes: none;\n}\n\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: \"\";\n  content: none;\n}\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n\ninput {\n  -webkit-appearance: none;\n  border-radius: 0;\n}\n","@use \"./globals/reset\";\n\n@import url(\"https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap\");\n\n:root {\n  --color-text: #313e51;\n  --color-text--secondary: #626c7f;\n\n  --color-bg: white;\n  --color-quiz: white;\n  --color-quiz--icon: 0, 0, 0;\n\n  --color-option: 167, 41, 245;\n\n  --color-error: rgb(238, 84, 84);\n  --color-correct: rgb(38, 215, 130);\n\n  --img-url: url(\"/public/assets/images/pattern-background-desktop-light.svg\");\n  --img-icon--sun: url(\"../../public/assets/images/icon-sun-dark.svg\");\n  --img-icon--moon: url(\"../../public/assets/images/icon-moon-dark.svg\");\n}\n\nhtml {\n  font-family: \"Rubik\", sans-serif;\n  font-size: 62.5%;\n}\n\nbody {\n  .dark {\n    color-scheme: dark;\n  }\n\n  .light {\n    color-scheme: light;\n  }\n\n  background-image: var(--img-url);\n  background-size: 100% 100%;\n  background-repeat: no-repeat;\n\n  background-color: var(--color-bg);\n  color: var(--color-text);\n  min-height: 100dvh;\n  overflow-x: hidden;\n  padding: 0 10%;\n  width: 100%;\n\n  display: grid;\n  grid-template-rows: 25% 1fr 15%;\n}\n// HEADER\n\n// THEME BUTTON\n.header {\n  width: 100%;\n\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n\n  &__subject {\n    display: flex;\n    gap: 3.2rem;\n    align-items: center;\n\n    img {\n      background-color: rgba(var(--color-quiz--icon), 0.05);\n      border-radius: 8px;\n      padding: 0.8rem;\n    }\n\n    p {\n      font-size: 2.8rem;\n    }\n  }\n}\n\n.theme {\n  display: flex;\n  align-items: center;\n  gap: 1.6rem;\n\n  &__icon--sun {\n    height: 2.4rem;\n    width: 2.4rem;\n    background-image: var(--img-icon--sun);\n    background-repeat: no-repeat;\n  }\n\n  &__icon--moon {\n    height: 2.4rem;\n    width: 2.4rem;\n    background-image: var(--img-icon--moon);\n    background-repeat: no-repeat;\n  }\n\n  &__btn {\n    position: relative;\n    height: 2.8rem;\n    width: 4.8rem;\n    background-color: rgb(var(--color-option));\n\n    cursor: pointer;\n  }\n  &__btn::before {\n    position: absolute;\n    content: \"\";\n    height: 2rem;\n    width: 2rem;\n    top: 50%;\n    transform: translateY(-50%);\n    background-color: white;\n    border-radius: 100%;\n\n    transition: left 0.3s ease, right 0.3s ease;\n  }\n}\n\n.dark .theme__btn::before {\n  right: 2px;\n}\n\n.light .theme__btn::before {\n  left: 2px;\n}\n//\n\n// MAIN SUBJECTS\n.container {\n  display: none;\n  &.show {\n    display: grid;\n\n    gap: 3.2rem;\n    grid-template-columns: 1fr 1fr;\n    justify-content: center;\n    color: var(--color-text);\n  }\n}\n.home {\n  display: flex;\n  flex-direction: column;\n  gap: 4rem;\n\n  h1 {\n    font-size: 6.4rem;\n  }\n\n  p {\n    font-size: 2rem;\n    color: var(--color-text--secondary);\n  }\n}\n\n.subjects {\n  display: flex;\n  flex-direction: column;\n  gap: 3.2rem;\n\n  &__subject {\n    display: flex;\n    align-items: center;\n    gap: 3.2rem;\n\n    background-color: var(--color-quiz);\n    padding: 1.2rem;\n    border-radius: 8px;\n\n    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);\n    cursor: pointer;\n    border: 3px solid transparent;\n\n    &:hover {\n      border: 3px solid rgba(var(--color-option), 0.5);\n      color: rgba(var(--color-option), 0.5);\n      transition: all 0.3s ease;\n    }\n\n    &:focus,\n    &:active {\n      border: 3px solid rgba(var(--color-option), 1);\n      color: rgba(var(--color-option), 1);\n    }\n\n    img {\n      background-color: rgba(var(--color-quiz--icon), 0.05);\n      border-radius: 8px;\n      padding: 0.8rem;\n    }\n\n    p {\n      font-size: 2.8rem;\n    }\n  }\n}\n\n// MAIN QUIZ\n.quiz {\n  display: none;\n  &.show {\n    display: grid;\n\n    gap: 3.2rem;\n    grid-template-columns: 1fr 1fr;\n    justify-content: center;\n    color: var(--color-text);\n  }\n\n  &__home {\n    display: flex;\n    flex-direction: column;\n    gap: 4rem;\n\n    h2 {\n      font-size: 6.4rem;\n    }\n\n    p {\n      font-size: 2rem;\n      color: var(--color-text--secondary);\n    }\n  }\n\n  &__answers {\n    display: flex;\n    flex-direction: column;\n    gap: 3.2rem;\n  }\n\n  &__option {\n    background-color: rgba(var(--color-quiz--icon), 0.05);\n    border-radius: 8px;\n    padding: 1.6rem;\n    font-weight: bold;\n  }\n\n  &__answer {\n    display: flex;\n    align-items: center;\n    gap: 3.2rem;\n\n    background-color: var(--color-quiz);\n    padding: 1.2rem;\n    border-radius: 8px;\n    border: 1px solid transparent;\n\n    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);\n    cursor: pointer;\n\n    &.active {\n      border: solid 1px rgb(var(--color-option));\n    }\n\n    &.error {\n      border: solid 1px var(--color-error);\n    }\n\n    &.correct {\n      border: solid 1px var(--color-correct);\n    }\n\n    &:not(.active):hover .quiz__option {\n      background-color: rgba(var(--color-option), 0.1);\n      color: rgb(var(--color-option));\n      transition: all 0.3s ease;\n    }\n\n    &.active .quiz__option {\n      background-color: rgba(var(--color-option), 1);\n      color: white;\n      transition: all 0.3s ease;\n    }\n    &.error .quiz__option {\n      background-color: var(--color-error);\n    }\n    &.correct .quiz__option {\n      background-color: var(--color-correct);\n    }\n\n    &.disabled {\n      pointer-events: none;\n    }\n\n    p {\n      font-size: 1.6rem;\n    }\n  }\n\n  &__error {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    gap: 3.2rem;\n\n    p {\n      color: var(--color-error);\n      font-size: 2.4rem;\n    }\n  }\n}\n\n// BUTTON\n\n.btn {\n  height: 9.2rem;\n  width: 100%;\n  outline: none;\n  border-style: none;\n\n  color: white;\n  background-color: rgb(var(--color-option));\n  font-size: 2.8rem;\n  border-radius: 8px;\n  cursor: pointer;\n\n  &:hover {\n    filter: brightness(1.2);\n    transition: all 0.3s;\n  }\n\n  &:active {\n    border-style: none;\n    filter: brightness(1.3);\n    transition: all 0.3s;\n  }\n}\n\n// DARK MODE\nbody.dark {\n  --color-text: white;\n  --color-text--secondary: #abc1e1;\n\n  --color-bg: #313e51;\n  --color-quiz: #3b4d66;\n  --color-quiz--icon: 255, 255, 255;\n\n  --img-url: url(\"/public/assets/images/pattern-background-desktop-dark.svg\");\n  --img-icon--sun: url(\"../../public/assets/images/icon-sun-light.svg\");\n  --img-icon--moon: url(\"../../public/assets/images/icon-moon-light.svg\");\n}\n\n// MEDIA QUERRIES\n\n@media screen and (max-width: 1000px) {\n  //MAIN SUBJECTS\n  .container {\n    &.show {\n      display: grid;\n\n      gap: 3.2rem;\n      grid-template-columns: 1fr;\n      grid-template-rows: max-content 1fr;\n      color: var(--color-text);\n    }\n  }\n  .home h1 {\n    font-size: 4rem;\n  }\n\n  // QUIZ\n  .quiz {\n    &.show {\n      grid-template-columns: 1fr;\n      grid-template-rows: max-content 1fr;\n      gap: 3.2rem;\n    }\n\n    &__home h2 {\n      font-size: 4rem;\n    }\n  }\n}\n"],"sourceRoot":""}]);
+  .result.show {
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr;
+    gap: 3.2rem;
+  }
+}`, "",{"version":3,"sources":["webpack://./src/styles/globals/_reset.scss","webpack://./src/styles/main.scss"],"names":[],"mappings":"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","sourcesContent":["*,\n*:before,\n*:after {\n  box-sizing: border-box;\n}\n\nhtml,\nbody,\ndiv,\nspan,\nobject,\niframe,\nfigure,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\ncode,\nem,\nimg,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nb,\nu,\ni,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\nmain,\ncanvas,\nembed,\nfooter,\nheader,\nnav,\nsection,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n  text-rendering: optimizeLegibility;\n  -webkit-font-smoothing: antialiased;\n  text-size-adjust: none;\n}\n\nfooter,\nheader,\nnav,\nsection,\nmain {\n  display: block;\n}\n\nbody {\n  line-height: 1;\n}\n\nol,\nul {\n  list-style: none;\n}\n\nblockquote,\nq {\n  quotes: none;\n}\n\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n  content: \"\";\n  content: none;\n}\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n\ninput {\n  -webkit-appearance: none;\n  border-radius: 0;\n}\n","@use \"./globals/reset\";\n\n@import url(\"https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap\");\n\n:root {\n  --color-text: 49, 62, 81;\n  --color-text--secondary: 98, 108, 127;\n\n  --color-bg: 255, 255, 255;\n  --color-quiz: 255, 255, 255;\n  --color-quiz--icon: 0, 0, 0;\n\n  --color-option: 167, 41, 245;\n\n  --color-error: 238, 84, 84;\n  --color-correct: 38, 215, 130;\n\n  --img-url: url(\"/public/assets/images/pattern-background-desktop-light.svg\");\n  --img-icon--sun: url(\"../../public/assets/images/icon-sun-dark.svg\");\n  --img-icon--moon: url(\"../../public/assets/images/icon-moon-dark.svg\");\n}\n\nhtml {\n  font-family: \"Rubik\", sans-serif;\n  font-size: 62.5%;\n}\n\nbody {\n  .dark {\n    color-scheme: dark;\n  }\n\n  .light {\n    color-scheme: light;\n  }\n\n  background-image: var(--img-url);\n  background-size: 100% 100%;\n  background-repeat: no-repeat;\n  background-color: rgb(var(--color-bg));\n  color: rgb(var(--color-text));\n  display: grid;\n  grid-template-rows: 25% 1fr 15%;\n  min-height: 100dvh;\n  overflow-x: hidden;\n  padding: 0 10%;\n  width: 100%;\n}\n\n// THEME BUTTON\n.header {\n  align-items: center;\n  display: flex;\n  justify-content: space-between;\n  width: 100%;\n\n  &__subject {\n    align-items: center;\n    display: flex;\n    gap: 3.2rem;\n    border-radius: 8px;\n\n    img {\n      background-color: rgba(var(--color-quiz--icon), 0.05);\n      border-radius: 8px;\n      padding: 0.8rem;\n    }\n\n    p {\n      font-size: 2.8rem;\n    }\n  }\n}\n\n.theme {\n  align-items: center;\n  display: flex;\n  gap: 1.6rem;\n\n  &__icon--sun {\n    background-image: var(--img-icon--sun);\n    background-repeat: no-repeat;\n    height: 2.4rem;\n    width: 2.4rem;\n  }\n\n  &__icon--moon {\n    background-image: var(--img-icon--moon);\n    background-repeat: no-repeat;\n    height: 2.4rem;\n    width: 2.4rem;\n  }\n\n  &__btn {\n    background-color: rgb(var(--color-option));\n    cursor: pointer;\n    height: 2.8rem;\n    position: relative;\n    width: 4.8rem;\n  }\n  &__btn::before {\n    background-color: white;\n    border-radius: 100%;\n    content: \"\";\n    height: 2rem;\n    position: absolute;\n    top: 50%;\n    transform: translateY(-50%);\n    transition: left 0.3s ease, right 0.3s ease;\n    width: 2rem;\n  }\n}\n\n.dark .theme__btn::before {\n  right: 2px;\n}\n\n.light .theme__btn::before {\n  left: 2px;\n}\n//\n\n// MAIN SUBJECTS\n.container {\n  display: none;\n  &.show {\n    color: rgb(var(--color-text));\n    display: grid;\n    gap: 3.2rem;\n    grid-template-columns: 1fr 1fr;\n    justify-content: center;\n  }\n}\n.home {\n  display: flex;\n  flex-direction: column;\n  gap: 4rem;\n\n  h1 {\n    font-size: 6.4rem;\n  }\n\n  p {\n    color: rgb(var(--color-text--secondary));\n    font-size: 2rem;\n  }\n}\n\n.subjects {\n  display: flex;\n  flex-direction: column;\n  gap: 3.2rem;\n\n  &__subject {\n    align-items: center;\n    background-color: rgb(var(--color-quiz));\n    border-radius: 8px;\n    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);\n    border: 3px solid transparent;\n    cursor: pointer;\n    display: flex;\n    gap: 3.2rem;\n    padding: 1.2rem;\n\n    &:hover {\n      border: 3px solid rgba(var(--color-option), 0.5);\n      color: rgba(var(--color-option), 0.5);\n      transition: all 0.3s ease;\n    }\n\n    &:focus,\n    &:active {\n      border: 3px solid rgba(var(--color-option), 1);\n      color: rgba(var(--color-option), 1);\n    }\n\n    img {\n      background-color: rgba(var(--color-quiz--icon), 0.05);\n      border-radius: 8px;\n      padding: 0.8rem;\n    }\n\n    p {\n      font-size: 2.8rem;\n    }\n  }\n}\n\n// MAIN QUIZ\n.quiz {\n  display: none;\n  &.show {\n    color: rgb(var(--color-text));\n    display: grid;\n    gap: 3.2rem;\n    grid-template-columns: 1fr 1fr;\n    justify-content: center;\n  }\n\n  &__home {\n    display: flex;\n    flex-direction: column;\n    gap: 4rem;\n\n    h2 {\n      font-size: 6.4rem;\n    }\n\n    p {\n      color: rgb(var(--color-text--secondary));\n      font-size: 2rem;\n    }\n  }\n\n  &__answers {\n    display: flex;\n    flex-direction: column;\n    gap: 3.2rem;\n  }\n\n  &__option {\n    background-color: rgba(var(--color-quiz--icon), 0.05);\n    border-radius: 8px;\n    font-weight: bold;\n    padding: 1.6rem;\n  }\n\n  &__answer {\n    align-items: center;\n    background-color: rgb(var(--color-quiz));\n    border-radius: 8px;\n    border: 1px solid transparent;\n    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);\n    cursor: pointer;\n    display: flex;\n    gap: 3.2rem;\n    padding: 1.2rem;\n\n    &.active {\n      border: solid 1px rgb(var(--color-option));\n    }\n\n    &.error {\n      border: solid 1px rgb(var(--color-error));\n    }\n\n    &.correct {\n      border: solid 1px rgb(var(--color-correct));\n    }\n\n    &:not(.active):hover .quiz__option {\n      background-color: rgba(var(--color-option), 0.1);\n      color: rgb(var(--color-option));\n      transition: all 0.3s ease;\n    }\n\n    &.active .quiz__option {\n      background-color: rgba(var(--color-option), 1);\n      color: white;\n      transition: all 0.3s ease;\n    }\n    &.error .quiz__option {\n      background-color: rgb(var(--color-error));\n    }\n    &.correct .quiz__option {\n      background-color: rgb(var(--color-correct));\n    }\n\n    &.disabled {\n      pointer-events: none;\n    }\n\n    p {\n      font-size: 1.6rem;\n    }\n  }\n\n  &__error {\n    align-items: center;\n    display: flex;\n    gap: 3.2rem;\n    justify-content: center;\n\n    p {\n      color: rgb(var(--color-error));\n      font-size: 2.4rem;\n    }\n  }\n}\n\n// COMPLRETED QUIZ\n\n.result {\n  display: none;\n\n  &.show {\n    color: rgb(var(--color-text));\n    display: grid;\n    grid-template-columns: 1fr 1fr;\n  }\n\n  &__home {\n    display: flex;\n    flex-direction: column;\n    font-size: 6.4rem;\n    gap: 1.2rem;\n\n    h3 {\n      font-weight: bold;\n    }\n  }\n\n  &__title {\n    align-items: center;\n    display: flex;\n    gap: 3.2rem;\n\n    span {\n      font-size: 2.8rem;\n    }\n\n    img {\n      background-color: rgba(var(--color-quiz--icon), 0.05);\n      border-radius: 8px;\n      padding: 0.8rem;\n    }\n  }\n\n  &__info {\n    align-items: center;\n    display: flex;\n    flex-direction: column;\n    gap: 3.2rem;\n  }\n  &__box {\n    align-items: center;\n    border-radius: 8px;\n    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);\n    background-color: rgb(var(--color-quiz));\n    display: flex;\n    flex-direction: column;\n    gap: 1.6rem;\n    padding: 3.2rem;\n    width: 100%;\n  }\n\n  &__length {\n    font-size: 2.4rem;\n  }\n\n  &__points {\n    font-size: 14.4rem;\n    font-weight: bold;\n  }\n}\n\n// BUTTON\n\n.btn {\n  color: white;\n  border-style: none;\n  background-color: rgb(var(--color-option));\n  border-radius: 8px;\n  cursor: pointer;\n  font-size: 2.8rem;\n  height: 9.2rem;\n  outline: none;\n  width: 100%;\n\n  &:hover {\n    filter: brightness(1.2);\n    transition: all 0.3s;\n  }\n\n  &:active {\n    border-style: none;\n    filter: brightness(1.3);\n    transition: all 0.3s;\n  }\n}\n\n// DARK MODE\nbody.dark {\n  --color-text: 255, 255, 255;\n  --color-text--secondary: 171, 193, 225;\n\n  --color-bg: 49, 62, 81;\n  --color-quiz: 59, 77, 102;\n  --color-quiz--icon: 255, 255, 255;\n\n  --img-url: url(\"/public/assets/images/pattern-background-desktop-dark.svg\");\n  --img-icon--sun: url(\"../../public/assets/images/icon-sun-light.svg\");\n  --img-icon--moon: url(\"../../public/assets/images/icon-moon-light.svg\");\n}\n\n// MEDIA QUERRIES\n\n@media screen and (max-width: 1000px) {\n  //MAIN SUBJECTS\n  .container {\n    &.show {\n      color: rgb(var(--color-text));\n      display: grid;\n      gap: 3.2rem;\n      grid-template-columns: 1fr;\n      grid-template-rows: max-content 1fr;\n    }\n  }\n  .home h1 {\n    font-size: 4rem;\n  }\n\n  // QUIZ\n  .quiz {\n    &.show {\n      grid-template-columns: 1fr;\n      grid-template-rows: max-content 1fr;\n      gap: 3.2rem;\n    }\n\n    &__home h2 {\n      font-size: 4rem;\n    }\n  }\n\n  // COMPLETED\n  .result {\n    &.show {\n      grid-template-columns: 1fr;\n      grid-template-rows: max-content 1fr;\n      gap: 3.2rem;\n    }\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1440,7 +1501,6 @@ function quiz(index) {
                     if (quizAnswers) {
                         quizAnswers.innerHTML = `${questions[questionId].options
                             .map((option, i) => {
-                            // TODO
                             const text = document.createElement("div");
                             text.innerText = option;
                             const escapedText = text.innerHTML;
@@ -1481,12 +1541,15 @@ function quiz(index) {
                                 console.log(pickedId);
                                 if (pickedId === undefined) {
                                     const errorMessage = document.createElement("div");
-                                    errorMessage.classList.add("quiz__error");
-                                    errorMessage.innerHTML = `
+                                    const addedError = document.querySelector(".quiz__error");
+                                    if (!addedError) {
+                                        errorMessage.classList.add("quiz__error");
+                                        errorMessage.innerHTML = `
                         <img alt='error icon' src='./icon-error.svg' />
                         <p>Please select an answer</p>
                 `;
-                                    quizAnswers.appendChild(errorMessage);
+                                        quizAnswers.appendChild(errorMessage);
+                                    }
                                 }
                                 else {
                                     const removeErrorMessage = document.querySelector(".quiz__error");
@@ -1541,7 +1604,7 @@ function quiz(index) {
                                                     answer.classList.remove("error");
                                                 });
                                                 quiz === null || quiz === void 0 ? void 0 : quiz.classList.remove("show");
-                                                quizCompleted(index, quizPoints);
+                                                quizCompleted(quizData, quizPoints);
                                             });
                                         }
                                         pickedAnswer = undefined;
@@ -1565,9 +1628,37 @@ function quiz(index) {
         console.log(error);
     }
 }
-// QUIZ COMPLETED TODO
-function quizCompleted(quizIndexSubject, points) {
-    console.log(quizIndexSubject, points);
+// QUIZ COMPLETED MARK
+function quizCompleted(quizData, points) {
+    const result = document.querySelector(".result");
+    const quiz = document.querySelector(".quiz");
+    const container = document.querySelector(".container");
+    result.classList.add("show");
+    const icon = quizData.icon.split("/").pop();
+    quiz.remove();
+    container.remove();
+    result.innerHTML = `
+  <div class='result__home ' >
+    <p>Quiz completed</p>
+    <h3>You scored...</h3>
+  </div>
+  <div class='result__info' >
+    <div class='result__box'>
+      <div class='result__title' >
+        <img src='./${icon}' alt='${quizData.title}' />
+        <span>${quizData.title}</span>
+      </div>
+      <p class="result__points" >${points}</p>
+      <p class="result__length" >out of ${quizData.questions.length}</p>
+    </div>
+    <button type='button' class='btn' >Play Again</button>
+  </div>
+  `;
+    const button = document.querySelector(".btn");
+    button.addEventListener("click", () => {
+        window.location.reload();
+    });
+    console.log(button);
 }
 showSubjects();
 
@@ -1575,4 +1666,4 @@ showSubjects();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle.e5173e350a771329c01a.js.map
+//# sourceMappingURL=bundle.5f05e9a0ad61f19b1557.js.map
