@@ -134,7 +134,6 @@ function quiz(index: number) {
           if (quizAnswers) {
             quizAnswers.innerHTML = `${questions[questionId].options
               .map((option, i) => {
-                // TODO
                 const text = document.createElement("div");
                 text.innerText = option;
                 const escapedText = text.innerHTML;
@@ -183,12 +182,15 @@ function quiz(index: number) {
                 console.log(pickedId);
                 if (pickedId === undefined) {
                   const errorMessage = document.createElement("div");
-                  errorMessage.classList.add("quiz__error");
-                  errorMessage.innerHTML = `
+                  const addedError = document.querySelector(".quiz__error");
+                  if (!addedError) {
+                    errorMessage.classList.add("quiz__error");
+                    errorMessage.innerHTML = `
                         <img alt='error icon' src='./icon-error.svg' />
                         <p>Please select an answer</p>
                 `;
-                  quizAnswers.appendChild(errorMessage);
+                    quizAnswers.appendChild(errorMessage);
+                  }
                 } else {
                   const removeErrorMessage =
                     document.querySelector(".quiz__error");
@@ -257,7 +259,7 @@ function quiz(index: number) {
 
                         quiz?.classList.remove("show");
 
-                        quizCompleted(index, quizPoints);
+                        quizCompleted(quizData, quizPoints);
                       });
                     }
                     pickedAnswer = undefined;
@@ -279,10 +281,41 @@ function quiz(index: number) {
   }
 }
 
-// QUIZ COMPLETED TODO
+// QUIZ COMPLETED MARK
 
-function quizCompleted(quizIndexSubject: number, points: number) {
-  console.log(quizIndexSubject, points);
+function quizCompleted(quizData: Questions, points: number) {
+  const result: HTMLElement = document.querySelector(".result")!;
+  const quiz: HTMLElement = document.querySelector(".quiz")!;
+  const container: HTMLElement = document.querySelector(".container")!;
+  result.classList.add("show");
+  const icon = quizData.icon.split("/").pop();
+
+  quiz.remove();
+  container.remove();
+
+  result.innerHTML = `
+  <div class='result__home ' >
+    <p>Quiz completed</p>
+    <h3>You scored...</h3>
+  </div>
+  <div class='result__info' >
+    <div class='result__box'>
+      <div class='result__title' >
+        <img src='./${icon}' alt='${quizData.title}' />
+        <span>${quizData.title}</span>
+      </div>
+      <p class="result__points" >${points}</p>
+      <p class="result__length" >out of ${quizData.questions.length}</p>
+    </div>
+    <button type='button' class='btn' >Play Again</button>
+  </div>
+  `;
+
+  const button: HTMLButtonElement = document.querySelector(".btn")!;
+  button.addEventListener("click", () => {
+    window.location.reload();
+  });
+  console.log(button);
 }
 
 showSubjects();

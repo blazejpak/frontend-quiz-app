@@ -3,17 +3,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 :root {
-  --color-text: #313e51;
-  --color-text--secondary: #626c7f;
+  --color-text: 49, 62, 81;
+  --color-text--secondary: 98, 108, 127;
 
-  --color-bg: white;
-  --color-quiz: white;
+  --color-bg: 255, 255, 255;
+  --color-quiz: 255, 255, 255;
   --color-quiz--icon: 0, 0, 0;
 
   --color-option: 167, 41, 245;
 
-  --color-error: rgb(238, 84, 84);
-  --color-correct: rgb(38, 215, 130);
+  --color-error: 238, 84, 84;
+  --color-correct: 38, 215, 130;
 
   --img-url: url("/public/assets/images/pattern-background-desktop-light.svg");
   --img-icon--sun: url("../../public/assets/images/icon-sun-dark.svg");
@@ -38,8 +38,8 @@ body {
   background-size: 100% 100%;
   background-repeat: no-repeat;
 
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background-color: rgb(var(--color-bg));
+  color: rgb(var(--color-text));
   min-height: 100dvh;
   overflow-x: hidden;
   padding: 0 10%;
@@ -134,7 +134,7 @@ body {
     gap: 3.2rem;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
-    color: var(--color-text);
+    color: rgb(var(--color-text));
   }
 }
 .home {
@@ -148,7 +148,7 @@ body {
 
   p {
     font-size: 2rem;
-    color: var(--color-text--secondary);
+    color: rgb(var(--color-text--secondary));
   }
 }
 
@@ -162,7 +162,7 @@ body {
     align-items: center;
     gap: 3.2rem;
 
-    background-color: var(--color-quiz);
+    background-color: rgb(var(--color-quiz));
     padding: 1.2rem;
     border-radius: 8px;
 
@@ -203,7 +203,7 @@ body {
     gap: 3.2rem;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
-    color: var(--color-text);
+    color: rgb(var(--color-text));
   }
 
   &__home {
@@ -217,7 +217,7 @@ body {
 
     p {
       font-size: 2rem;
-      color: var(--color-text--secondary);
+      color: rgb(var(--color-text--secondary));
     }
   }
 
@@ -239,7 +239,7 @@ body {
     align-items: center;
     gap: 3.2rem;
 
-    background-color: var(--color-quiz);
+    background-color: rgb(var(--color-quiz));
     padding: 1.2rem;
     border-radius: 8px;
     border: 1px solid transparent;
@@ -252,11 +252,11 @@ body {
     }
 
     &.error {
-      border: solid 1px var(--color-error);
+      border: solid 1px rgb(var(--color-error));
     }
 
     &.correct {
-      border: solid 1px var(--color-correct);
+      border: solid 1px rgb(var(--color-correct));
     }
 
     &:not(.active):hover .quiz__option {
@@ -271,10 +271,10 @@ body {
       transition: all 0.3s ease;
     }
     &.error .quiz__option {
-      background-color: var(--color-error);
+      background-color: rgb(var(--color-error));
     }
     &.correct .quiz__option {
-      background-color: var(--color-correct);
+      background-color: rgb(var(--color-correct));
     }
 
     &.disabled {
@@ -293,9 +293,75 @@ body {
     gap: 3.2rem;
 
     p {
-      color: var(--color-error);
+      color: rgb(var(--color-error));
       font-size: 2.4rem;
     }
+  }
+}
+
+// COMPLRETED QUIZ
+
+.result {
+  display: none;
+
+  &.show {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: rgb(var(--color-text));
+  }
+
+  &__home {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    font-size: 6.4rem;
+
+    h3 {
+      font-weight: bold;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+
+    span {
+      font-size: 2.8rem;
+    }
+
+    img {
+      background-color: rgba(var(--color-quiz--icon), 0.05);
+      border-radius: 8px;
+      padding: 0.8rem;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.2rem;
+  }
+  &__box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    padding: 3.2rem;
+    border-radius: 8px;
+
+    background-color: rgb(var(--color-quiz));
+  }
+
+  &__length {
+    font-size: 2.4rem;
+  }
+
+  &__points {
+    font-size: 14.4rem;
+    font-weight: bold;
   }
 }
 
@@ -327,11 +393,11 @@ body {
 
 // DARK MODE
 body.dark {
-  --color-text: white;
-  --color-text--secondary: #abc1e1;
+  --color-text: 255, 255, 255;
+  --color-text--secondary: 171, 193, 225;
 
-  --color-bg: #313e51;
-  --color-quiz: #3b4d66;
+  --color-bg: 49, 62, 81;
+  --color-quiz: 59, 77, 102;
   --color-quiz--icon: 255, 255, 255;
 
   --img-url: url("/public/assets/images/pattern-background-desktop-dark.svg");
@@ -350,7 +416,7 @@ body.dark {
       gap: 3.2rem;
       grid-template-columns: 1fr;
       grid-template-rows: max-content 1fr;
-      color: var(--color-text);
+      color: rgb(var(--color-text));
     }
   }
   .home h1 {
@@ -367,6 +433,15 @@ body.dark {
 
     &__home h2 {
       font-size: 4rem;
+    }
+  }
+
+  // COMPLETED
+  .result {
+    &.show {
+      grid-template-columns: 1fr;
+      grid-template-rows: max-content 1fr;
+      gap: 3.2rem;
     }
   }
 }
