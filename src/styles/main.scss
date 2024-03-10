@@ -16,6 +16,7 @@
   --color-correct: 38, 215, 130;
 
   --img-url: url("/public/assets/images/pattern-background-desktop-light.svg");
+  --img-url--mobile: url("/public/assets/images/pattern-background-mobile-light.svg");
   --img-icon--sun: url("../../public/assets/images/icon-sun-dark.svg");
   --img-icon--moon: url("../../public/assets/images/icon-moon-dark.svg");
 }
@@ -396,6 +397,14 @@ body.dark {
 // MEDIA QUERRIES
 
 @media screen and (max-width: 1000px) {
+  body {
+    background-image: var(--img-url--mobile);
+  }
+
+  body.dark {
+    --img-url--mobile: url("/public/assets/images/pattern-background-mobile-dark.svg");
+  }
+
   //MAIN SUBJECTS
   .container {
     &.show {

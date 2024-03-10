@@ -1,12 +1,14 @@
 const path = require("path");
 const HtmlWebpackplugin = require("html-webpack-plugin");
 const { title } = require("process");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "development",
   entry: { bundle: path.resolve(__dirname, "./src/script.ts") },
   output: {
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/assets/images",
     filename: "[name].js",
     filename: "[name].[contenthash].js",
     clean: true,
@@ -60,6 +62,9 @@ module.exports = {
       filename: "index.html",
       template: "./src/template.html",
       favicon: "./public/assets/images/favicon.png",
+    }),
+    new CopyPlugin({
+      patterns: [{ from: "./public/assets/images", to: "./assets/images" }],
     }),
   ],
 };

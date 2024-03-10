@@ -57,11 +57,9 @@ function showSubjects() {
         .map((subject, index) => {
           const icon = subject.icon.slice(1);
 
-          const imagePath = require(`../public${icon}`);
-
           return `
         <li data-index="${index}" class="subjects__subject">
-        <img src="${imagePath}" alt="${subject.title} icon" />
+        <img src="${icon}" alt="${subject.title} icon" />
         <p>${subject.title}</p>
         </li>
         `;
