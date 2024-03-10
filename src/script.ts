@@ -184,7 +184,7 @@ function quiz(index: number) {
                   if (!addedError) {
                     errorMessage.classList.add("quiz__error");
                     errorMessage.innerHTML = `
-                        <img alt='error icon' src='./icon-error.svg' />
+                        <img alt='error icon' src='/assets/images/icon-error.svg' />
                         <p>Please select an answer</p>
                 `;
                     quizAnswers.appendChild(errorMessage);

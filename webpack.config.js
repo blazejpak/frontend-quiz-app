@@ -4,11 +4,10 @@ const { title } = require("process");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: { bundle: path.resolve(__dirname, "./src/script.ts") },
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/assets/images",
     filename: "[name].js",
     filename: "[name].[contenthash].js",
     clean: true,
