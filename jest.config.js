@@ -1,9 +1,12 @@
 /** @type {import('jest').Config} */
 const config = {
   verbose: true,
-  testEnvironment: "node",
+  testEnvironment: "jsdom",
   transform: {
     "^.+\\.tsx?$": "ts-jest",
+  },
+  moduleNameMapper: {
+    "\\.(scss|css)$": "identity-obj-proxy",
   },
 };
 

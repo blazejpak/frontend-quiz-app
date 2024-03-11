@@ -106,7 +106,7 @@ function quiz(index: number) {
 
       quiz?.classList.add("show");
       if (subject) {
-        const icon = quizData.icon.split("/").pop();
+        const icon = quizData.icon.slice(1);
 
         subject.innerHTML = `
           <img src="./${icon}" alt="${quizData.title}" />
@@ -317,3 +317,5 @@ function quizCompleted(quizData: Questions, points: number) {
 }
 
 showSubjects();
+
+module.exports = { changeColorScheme, quiz, showSubjects, quizCompleted };
