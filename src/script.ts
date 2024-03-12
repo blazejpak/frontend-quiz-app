@@ -17,7 +17,7 @@ const quizzes: Questions[] = data.quizzes;
 const ABCD: string[] = ["A", "B", "C", "D"];
 
 // COLOR SCHEME
-function changeColorScheme() {
+export function changeColorScheme() {
   const themeBTN = document.querySelector(".theme__btn");
   const bodyHTML: HTMLBodyElement = document.querySelector("body")!;
 
@@ -47,7 +47,7 @@ changeColorScheme();
 
 // show subjects
 
-function showSubjects() {
+export function showSubjects() {
   const container: HTMLElement | null = document.querySelector(".container");
   const subjects: HTMLUListElement | null = document.querySelector(".subjects");
 
@@ -68,7 +68,7 @@ function showSubjects() {
 
       const subject: NodeListOf<HTMLLIElement> =
         document.querySelectorAll(".subjects__subject");
-
+      console.log(subject.length);
       subject.forEach((sub) => {
         sub.addEventListener("click", (e) => {
           if (e.target instanceof HTMLElement) {
@@ -318,4 +318,4 @@ function quizCompleted(quizData: Questions, points: number) {
 
 showSubjects();
 
-module.exports = { changeColorScheme, quiz, showSubjects, quizCompleted };
+// module.exports = { changeColorScheme, quiz, showSubjects, quizCompleted };

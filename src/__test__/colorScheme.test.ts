@@ -1,4 +1,4 @@
-const { changeColorScheme } = require("../script");
+import { changeColorScheme } from "../script";
 
 describe("Change color scheme function:", () => {
   test("Dark color scheme works correctly", () => {
